@@ -1,5 +1,3 @@
-const sizingDataset = window.FitMatchData;
-
 function normalizeMeasurements(measurements) {
   return {
     chest: measurements.chest,
@@ -10,6 +8,9 @@ function normalizeMeasurements(measurements) {
 
 window.FitMatchNormalize = {
   getBrandList() {
+    const sizingDataset = window.FitMatchData;
+    if (!sizingDataset?.brands) return [];
+
     return Object.entries(sizingDataset.brands).map(([id, brand]) => ({
       id,
       ...brand
@@ -17,6 +18,9 @@ window.FitMatchNormalize = {
   },
 
   getSizeOptions(brandId) {
+    const sizingDataset = window.FitMatchData;
+    if (!sizingDataset?.brands) return [];
+
     const brand = sizingDataset.brands[brandId];
     if (!brand) return [];
 
@@ -28,6 +32,9 @@ window.FitMatchNormalize = {
   },
 
   getCanonicalBrandChart(brandId) {
+    const sizingDataset = window.FitMatchData;
+    if (!sizingDataset?.brands) return null;
+
     const brand = sizingDataset.brands[brandId];
     if (!brand) return null;
 

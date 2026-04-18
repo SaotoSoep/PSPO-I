@@ -1,5 +1,3 @@
-const { getCanonicalBrandChart } = window.FitMatchNormalize;
-
 function scoreCandidate(source, target) {
   return (
     Math.abs(source.chest - target.chest) * 0.55 +
@@ -9,6 +7,12 @@ function scoreCandidate(source, target) {
 }
 
 window.FitMatchTranslate = function translateSize(sourceBrandId, sourceSize, targetBrandId) {
+  const normalizeApi = window.FitMatchNormalize;
+  if (!normalizeApi?.getCanonicalBrandChart) {
+    return null;
+  }
+
+  const { getCanonicalBrandChart } = normalizeApi;
   const sourceChart = getCanonicalBrandChart(sourceBrandId);
   const targetChart = getCanonicalBrandChart(targetBrandId);
 
