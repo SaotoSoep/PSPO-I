@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>FitMatch - Sizing Intelligence Layer</title>
   <meta name="description" content="FitMatch helps translate and compare sizes across brands with a lightweight sizing intelligence layer." />
-  <link rel="stylesheet" href="./css/styles.css?v=20260418-3" />
-  <script src="./js/data.js?v=20260418-3" defer></script>
-  <script src="./js/normalization.js?v=20260418-3" defer></script>
-  <script src="./js/translator.js?v=20260418-3" defer></script>
-  <script src="./js/app.js?v=20260418-3" defer></script>
+  <link rel="stylesheet" href="./css/styles.css?v=20260418-4" />
+  <script src="./js/data.js?v=20260418-4" defer></script>
+  <script src="./js/normalization.js?v=20260418-4" defer></script>
+  <script src="./js/translator.js?v=20260418-4" defer></script>
+  <script src="./js/app.js?v=20260418-4" defer></script>
 </head>
 <body>
   <main class="app-shell">
@@ -46,63 +46,77 @@
     <section id="widget" class="card section-card widget-card">
       <div class="section-heading">
         <div>
-          <h2>Size translation widget</h2>
-          <p>This is the main frontend we want to validate: fast input, simple translation, instant value.</p>
+          <h2>Embed-ready widget</h2>
+          <p>This is the compact frontend we want to ship into a product page or retailer widget slot.</p>
         </div>
         <span class="badge">Primary surface</span>
       </div>
 
-      <div class="grid two-up widget-grid">
-        <article class="widget-form card">
-          <div class="widget-header">
-            <h3>Translate size</h3>
-            <p>Choose the brand and size you already know, then translate it to a target brand.</p>
+      <div class="widget-shell">
+        <div class="widget-shell-top">
+          <div>
+            <h3>FitMatch size translator</h3>
+            <p>Known size in one brand, recommendation in another brand. Minimal input, immediate value.</p>
           </div>
-
-          <form id="compareForm" class="form-grid">
-            <label>
-              I wear this size at
-              <select id="sourceBrand"></select>
-            </label>
-
-            <label>
-              My usual size
-              <select id="sourceSize"></select>
-            </label>
-
-            <label>
-              I want to buy from
-              <select id="targetBrand"></select>
-            </label>
-
-            <label>
-              Product type
-              <select id="productType">
-                <option value="tshirt">Women's T-shirt</option>
-              </select>
-            </label>
-
-            <button type="submit">Get recommendation</button>
-          </form>
-        </article>
-
-        <article class="widget-result card">
-          <h3>Recommendation</h3>
-          <div id="translationResult" class="result-box">
-            <h3>Translation result</h3>
-            <p>Select two brands to see how the same size translates.</p>
+          <div class="widget-chip-row">
+            <span class="widget-chip">Brand to brand</span>
+            <span class="widget-chip">Fast flow</span>
+            <span class="widget-chip">Low friction</span>
           </div>
-          <div class="widget-summary">
-            <div>
-              <strong>Why this is useful</strong>
-              <p>It reduces guesswork, multi-size orders, and sizing frustration for shoppers.</p>
+        </div>
+
+        <div class="grid two-up widget-grid">
+          <article class="widget-form card">
+            <div class="widget-header">
+              <h3>Translate size</h3>
+              <p>Choose the brand and size you already know, then translate it to a target brand.</p>
             </div>
-            <div>
-              <strong>What we validate</strong>
-              <p>Whether a simple brand-to-brand recommendation is useful enough to keep using.</p>
+
+            <form id="compareForm" class="form-grid">
+              <label>
+                I wear this size at
+                <select id="sourceBrand"></select>
+              </label>
+
+              <label>
+                My usual size
+                <select id="sourceSize"></select>
+              </label>
+
+              <label>
+                I want to buy from
+                <select id="targetBrand"></select>
+              </label>
+
+              <label>
+                Product type
+                <select id="productType">
+                  <option value="tshirt">Women's T-shirt</option>
+                </select>
+              </label>
+
+              <button type="submit">Get recommendation</button>
+            </form>
+          </article>
+
+          <article class="widget-result card">
+            <h3>Recommendation</h3>
+            <div id="translationResult" class="result-box">
+              <h3>Translation result</h3>
+              <p>Select two brands to see how the same size translates.</p>
             </div>
-          </div>
-        </article>
+            <div class="widget-summary">
+              <div>
+                <strong>Why this is useful</strong>
+                <p>It reduces guesswork, multi-size orders, and sizing frustration for shoppers.</p>
+              </div>
+              <div>
+                <strong>What we validate</strong>
+                <p>Whether a simple brand-to-brand recommendation is useful enough to keep using.</p>
+              </div>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
