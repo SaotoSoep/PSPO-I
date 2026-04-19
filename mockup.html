@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>FitMatch Mockup - Product Page</title>
   <meta name="description" content="A realistic product page mockup showing where the FitMatch widget sits inside a fashion shopping flow." />
-  <link rel="stylesheet" href="./css/styles.css?v=20260419-1" />
+  <link rel="stylesheet" href="./css/styles.css?v=20260419-2" />
   <script>
     window.FitMatchWidgetConfig = {
       sourceBrand: "zara",
@@ -13,10 +13,10 @@
       sourceSize: "S"
     };
   </script>
-  <script src="./js/data.js?v=20260419-1" defer></script>
-  <script src="./js/normalization.js?v=20260419-1" defer></script>
-  <script src="./js/translator.js?v=20260419-1" defer></script>
-  <script src="./js/app.js?v=20260419-1" defer></script>
+  <script src="./js/data.js?v=20260419-2" defer></script>
+  <script src="./js/normalization.js?v=20260419-2" defer></script>
+  <script src="./js/translator.js?v=20260419-2" defer></script>
+  <script src="./js/app.js?v=20260419-2" defer></script>
   <style>
     .mockup-shell {
       width: min(1380px, calc(100% - 32px));
@@ -170,6 +170,100 @@
       line-height: 1.6;
     }
 
+    .product-info-block {
+      margin: 12px 0 18px;
+      padding: 16px;
+      border-radius: 22px;
+      border: 1px solid rgba(36, 28, 22, 0.12);
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .product-info-block h3 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .color-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+      color: var(--muted);
+    }
+
+    .swatches {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .swatch {
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+    }
+
+    .swatch.grey { background: #c8c6c2; }
+    .swatch.offwhite { background: #f6f2eb; }
+    .swatch.black { background: #222; }
+    .swatch.green { background: #8ac3a3; }
+    .swatch.blue { background: #9fc2e4; }
+
+    .size-pills {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .size-pill {
+      padding: 10px 8px;
+      border-radius: 16px;
+      border: 1px solid rgba(36, 28, 22, 0.12);
+      background: rgba(255, 255, 255, 0.78);
+      text-align: center;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .size-pill.active {
+      background: rgba(180, 83, 42, 0.1);
+      border-color: rgba(180, 83, 42, 0.26);
+      color: var(--accent);
+    }
+
+    .availability {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .product-cta {
+      margin-top: 14px;
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 15px 18px;
+      border-radius: 18px;
+      background: #e30613;
+      color: #fff;
+      font-weight: 900;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .details-text {
+      margin-top: 14px;
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 0.95rem;
+    }
+
     .model-note {
       padding: 12px 14px;
       border-radius: 18px;
@@ -303,26 +397,108 @@
   <main class="mockup-shell">
     <div class="mockup-topbar">
       <div>FitMatch product page mockup</div>
-      <a href="./index.html?v=20260419-1#widget">Back to widget page</a>
+      <a href="./index.html?v=20260419-2#widget">Back to widget page</a>
     </div>
 
     <section class="pdp-layout">
       <div class="gallery-card">
         <div class="gallery-grid">
           <figure class="media large">
-            <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=1200&q=80" alt="Female model wearing a grey T-shirt" />
+            <svg viewBox="0 0 800 1100" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-label="Female model wearing a grey T-shirt, front view">
+              <defs>
+                <linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#f7d7d0"/>
+                  <stop offset="100%" stop-color="#f1ede7"/>
+                </linearGradient>
+                <linearGradient id="shirt1" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#d7d5d2"/>
+                  <stop offset="100%" stop-color="#bdb9b4"/>
+                </linearGradient>
+              </defs>
+              <rect width="800" height="1100" fill="url(#bg1)"/>
+              <circle cx="410" cy="210" r="112" fill="#2a1d1b"/>
+              <path d="M275 250C280 182 334 128 410 128C487 128 540 181 545 250C554 371 521 448 505 495H315C297 450 267 368 275 250Z" fill="#231815"/>
+              <path d="M288 500C298 426 332 369 407 369C483 369 517 426 528 500L565 899H247L288 500Z" fill="url(#shirt1)"/>
+              <path d="M311 492C315 455 339 414 385 404C394 402 404 401 413 401C430 401 449 404 464 410C499 424 524 460 532 500L563 780H247L282 507Z" fill="#d9d6d2"/>
+              <path d="M277 512C250 550 225 614 214 706L191 894H305L326 676C330 613 324 564 313 531C304 506 288 500 277 512Z" fill="#ad7c61"/>
+              <path d="M532 512C562 551 588 617 599 709L622 895H507L486 677C482 614 488 565 499 531C508 506 524 500 532 512Z" fill="#b4866d"/>
+              <path d="M357 486C365 438 383 418 407 418C432 418 452 438 460 486L470 619H348L357 486Z" fill="#efefec"/>
+              <path d="M374 435C389 427 425 427 440 435" stroke="#afaca7" stroke-width="10" stroke-linecap="round"/>
+              <path d="M274 250C288 303 336 343 410 343C485 343 534 303 546 250C535 201 487 156 410 156C334 156 285 201 274 250Z" fill="#f0c7b6" opacity=".35"/>
+            </svg>
             <figcaption class="media-label">Front view</figcaption>
           </figure>
           <figure class="media tall">
-            <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=80" alt="Female model wearing a T-shirt and jeans" />
+            <svg viewBox="0 0 800 1100" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-label="Female model wearing a grey T-shirt, full look">
+              <defs>
+                <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#f3f0e9"/>
+                  <stop offset="100%" stop-color="#d9eef8"/>
+                </linearGradient>
+                <linearGradient id="shirt2" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#dddad6"/>
+                  <stop offset="100%" stop-color="#c1bdb7"/>
+                </linearGradient>
+                <linearGradient id="jeans" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#a7d0eb"/>
+                  <stop offset="100%" stop-color="#7fb3da"/>
+                </linearGradient>
+              </defs>
+              <rect width="800" height="1100" fill="url(#bg2)"/>
+              <circle cx="392" cy="162" r="92" fill="#2d221f"/>
+              <path d="M318 195C325 148 365 114 408 114C462 114 508 152 514 208C519 263 496 322 482 351H324C305 307 313 246 318 195Z" fill="#261915"/>
+              <path d="M338 352C342 312 362 277 406 277C452 277 471 311 477 352L507 606H308L338 352Z" fill="url(#shirt2)"/>
+              <path d="M309 368L270 558V824H358L376 562L343 360Z" fill="#ad7c61"/>
+              <path d="M511 367L550 559V824H462L444 563L477 359Z" fill="#b4866d"/>
+              <path d="M307 583L279 1072H377L423 711L450 1072H548L521 582Z" fill="url(#jeans)"/>
+              <path d="M281 718H399L382 1069H279Z" fill="#9fc3e2"/>
+              <path d="M403 718H526L548 1069H430Z" fill="#8cb9dd"/>
+              <path d="M309 368C338 390 460 390 489 367" stroke="#bdb9b4" stroke-width="8" stroke-linecap="round"/>
+            </svg>
             <figcaption class="media-label">Full look</figcaption>
           </figure>
           <figure class="media small">
-            <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=80" alt="Back view of a model wearing a T-shirt" />
+            <svg viewBox="0 0 800 1100" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-label="Female model wearing a grey T-shirt, back view">
+              <defs>
+                <linearGradient id="bg3" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#eff2ec"/>
+                  <stop offset="100%" stop-color="#d9eef8"/>
+                </linearGradient>
+                <linearGradient id="shirt3" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#dad7d2"/>
+                  <stop offset="100%" stop-color="#b9b4ae"/>
+                </linearGradient>
+              </defs>
+              <rect width="800" height="1100" fill="url(#bg3)"/>
+              <path d="M293 243C293 174 346 122 411 122C477 122 531 174 531 243C531 319 506 355 487 385C466 414 454 440 454 492H368C368 440 354 413 334 385C315 356 293 319 293 243Z" fill="#2a1d1b"/>
+              <path d="M310 482C328 419 360 380 410 380C461 380 493 419 510 482L553 884H247L310 482Z" fill="url(#shirt3)"/>
+              <path d="M341 403C366 421 451 421 477 403" stroke="#a8a39d" stroke-width="8" stroke-linecap="round"/>
+              <path d="M294 500C243 536 212 611 196 699L176 885H286L320 666C326 612 326 562 312 525C305 506 294 500 294 500Z" fill="#ad7c61"/>
+              <path d="M506 500C556 536 588 611 604 699L624 885H514L480 666C474 612 474 562 488 525C495 506 506 500 506 500Z" fill="#b4866d"/>
+              <path d="M364 814H455" stroke="#8f9aa4" stroke-width="18" stroke-linecap="round"/>
+            </svg>
             <figcaption class="media-label">Back view</figcaption>
           </figure>
           <figure class="media small">
-            <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=80" alt="Close up of grey T-shirt fabric" />
+            <svg viewBox="0 0 800 1100" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-label="Fabric close-up of a grey T-shirt">
+              <defs>
+                <linearGradient id="bg4" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#9ebfd8"/>
+                  <stop offset="100%" stop-color="#f2ede5"/>
+                </linearGradient>
+                <linearGradient id="fabric" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#dad7d2"/>
+                  <stop offset="100%" stop-color="#b8b3ad"/>
+                </linearGradient>
+              </defs>
+              <rect width="800" height="1100" fill="url(#bg4)"/>
+              <rect x="104" y="170" width="592" height="760" rx="60" fill="url(#fabric)"/>
+              <path d="M177 314C247 276 561 276 632 314" stroke="#f1f1ee" stroke-width="7" opacity=".55" fill="none"/>
+              <path d="M177 370C259 335 546 335 632 370" stroke="#c5c0ba" stroke-width="4" opacity=".45" fill="none"/>
+              <path d="M177 418C250 386 550 386 632 418" stroke="#f1f1ee" stroke-width="6" opacity=".6" fill="none"/>
+              <circle cx="400" cy="560" r="42" fill="#f0efeb" opacity=".65"/>
+              <path d="M360 560C372 545 387 536 400 536C414 536 428 545 440 560" stroke="#a9a4a0" stroke-width="6" fill="none" stroke-linecap="round"/>
+            </svg>
             <figcaption class="media-label">Fabric close-up</figcaption>
           </figure>
         </div>
@@ -340,6 +516,32 @@
         <div class="product-meta">
           <div>Lightweight cotton blend, regular fit, short sleeves.</div>
           <div>The model wears size S and is 179 cm tall.</div>
+        </div>
+
+        <div class="product-info-block">
+          <h3>Product information</h3>
+          <div class="color-row">
+            <div class="swatches">
+              <span class="swatch grey"></span>
+              <span class="swatch offwhite"></span>
+              <span class="swatch black"></span>
+              <span class="swatch green"></span>
+              <span class="swatch blue"></span>
+            </div>
+            <div>Light/Pastel Grey</div>
+          </div>
+          <div class="size-pills">
+            <div class="size-pill">XS</div>
+            <div class="size-pill active">S</div>
+            <div class="size-pill">M</div>
+            <div class="size-pill">L</div>
+            <div class="size-pill">XL</div>
+          </div>
+          <div class="availability">Small fit - choose one size up from normal</div>
+          <a class="product-cta" href="#widget">Add to bag</a>
+          <p class="details-text">
+            Fine-brieled cotton blend. Regular fit. Crew neck. Short sleeves. Designed for easy everyday wear.
+          </p>
         </div>
 
         <div class="fit-widget-inline">
