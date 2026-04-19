@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>FitMatch Mockup - Product Page</title>
   <meta name="description" content="A realistic product page mockup showing where the FitMatch widget sits inside a fashion shopping flow." />
-  <link rel="stylesheet" href="./css/styles.css?v=20260419-3" />
+  <link rel="stylesheet" href="./css/styles.css?v=20260419-4" />
   <script>
     window.FitMatchWidgetConfig = {
       sourceBrand: "zara",
@@ -13,10 +13,10 @@
       sourceSize: "S"
     };
   </script>
-  <script src="./js/data.js?v=20260419-3" defer></script>
-  <script src="./js/normalization.js?v=20260419-3" defer></script>
-  <script src="./js/translator.js?v=20260419-3" defer></script>
-  <script src="./js/app.js?v=20260419-3" defer></script>
+  <script src="./js/data.js?v=20260419-4" defer></script>
+  <script src="./js/normalization.js?v=20260419-4" defer></script>
+  <script src="./js/translator.js?v=20260419-4" defer></script>
+  <script src="./js/app.js?v=20260419-4" defer></script>
   <style>
     .mockup-shell {
       width: min(1380px, calc(100% - 32px));
@@ -421,7 +421,7 @@
   <main class="mockup-shell">
     <div class="mockup-topbar">
       <div>FitMatch product page mockup</div>
-      <a href="./index.html?v=20260419-3#widget">Back to widget page</a>
+      <a href="./index.html?v=20260419-4#widget">Back to widget page</a>
     </div>
 
     <section class="pdp-layout">
@@ -615,5 +615,19 @@
       button.addEventListener("click", () => setActiveSize(button.dataset.size));
     });
   </script>
+
+  <style>
+    .mockup-shell * {
+      border-radius: 0 !important;
+    }
+
+    .gallery-card {
+      padding: 0 !important;
+    }
+
+    .gallery-grid {
+      gap: 4px !important;
+    }
+  </style>
 </body>
 </html>
