@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FitMatch Mockup - Product Page</title>
+  <meta name="description" content="A realistic product page mockup showing where the FitMatch widget sits inside a fashion shopping flow." />
+  <link rel="stylesheet" href="./css/styles.css?v=20260419-1" />
+  <script>
+    window.FitMatchWidgetConfig = {
+      sourceBrand: "zara",
+      targetBrand: "mango",
+      sourceSize: "S"
+    };
+  </script>
+  <script src="./js/data.js?v=20260419-1" defer></script>
+  <script src="./js/normalization.js?v=20260419-1" defer></script>
+  <script src="./js/translator.js?v=20260419-1" defer></script>
+  <script src="./js/app.js?v=20260419-1" defer></script>
+  <style>
+    .mockup-shell {
+      width: min(1380px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 24px 0 40px;
+    }
+
+    .mockup-topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 18px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .mockup-topbar a {
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .pdp-layout {
+      display: grid;
+      grid-template-columns: 1.35fr 0.9fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .gallery-card,
+    .info-card {
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(36, 28, 22, 0.12);
+      box-shadow: var(--shadow);
+    }
+
+    .gallery-card {
+      padding: 16px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .media {
+      border-radius: 22px;
+      overflow: hidden;
+      position: relative;
+      min-height: 320px;
+      background: #eceae6;
+    }
+
+    .media.large {
+      grid-column: span 1;
+      min-height: 560px;
+    }
+
+    .media.tall {
+      min-height: 560px;
+    }
+
+    .media.small {
+      min-height: 240px;
+    }
+
+    .media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .media-label {
+      position: absolute;
+      left: 12px;
+      bottom: 12px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.86);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .info-card {
+      padding: 22px;
+      position: sticky;
+      top: 18px;
+    }
+
+    .product-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(36, 28, 22, 0.12);
+      background: rgba(255, 255, 255, 0.6);
+      color: var(--accent-2);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .product-title {
+      margin: 0 0 10px;
+      font-size: clamp(1.8rem, 2.8vw, 2.8rem);
+      line-height: 1;
+      letter-spacing: -0.05em;
+      text-transform: uppercase;
+    }
+
+    .price-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 10px 0 18px;
+    }
+
+    .price-now {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--accent);
+    }
+
+    .price-old {
+      color: var(--muted);
+      text-decoration: line-through;
+    }
+
+    .badge-sale {
+      padding: 5px 8px;
+      border-radius: 4px;
+      background: #e60000;
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 800;
+    }
+
+    .product-meta {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 16px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .model-note {
+      padding: 12px 14px;
+      border-radius: 18px;
+      background: rgba(15, 118, 110, 0.08);
+      border: 1px solid rgba(15, 118, 110, 0.14);
+      color: #2f4d49;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    .fit-widget-inline {
+      padding: 16px;
+      border-radius: 22px;
+      border: 1px solid rgba(36, 28, 22, 0.12);
+      background: rgba(255, 255, 255, 0.72);
+      margin-bottom: 18px;
+    }
+
+    .fit-widget-inline .section-heading {
+      margin-bottom: 10px;
+    }
+
+    .fit-widget-inline .section-heading h2 {
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    .fit-widget-inline .section-heading p {
+      margin: 4px 0 0;
+      font-size: 0.9rem;
+    }
+
+    .fit-widget-inline .widget-shell {
+      padding: 14px;
+      border-radius: 22px;
+    }
+
+    .fit-widget-inline .widget-shell-top {
+      margin-bottom: 14px;
+    }
+
+    .fit-widget-inline .widget-shell-top h3 {
+      font-size: 1rem;
+    }
+
+    .fit-widget-inline .widget-summary {
+      margin-top: 12px;
+    }
+
+    .size-guide {
+      margin-top: 8px;
+      border-top: 1px solid rgba(36, 28, 22, 0.12);
+      padding-top: 16px;
+    }
+
+    .size-guide h3 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .size-bars {
+      display: grid;
+      gap: 10px;
+    }
+
+    .size-row {
+      display: grid;
+      grid-template-columns: 38px 1fr 56px;
+      gap: 10px;
+      align-items: center;
+      font-size: 0.92rem;
+    }
+
+    .size-row .track {
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(36, 28, 22, 0.1);
+      overflow: hidden;
+    }
+
+    .size-row .fill {
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(135deg, var(--accent), #d97706);
+    }
+
+    .detail-block {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(36, 28, 22, 0.12);
+    }
+
+    .detail-block h3 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .detail-block p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    @media (max-width: 1100px) {
+      .pdp-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .info-card {
+        position: static;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .media.large,
+      .media.tall {
+        min-height: 380px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="mockup-shell">
+    <div class="mockup-topbar">
+      <div>FitMatch product page mockup</div>
+      <a href="./index.html?v=20260419-1#widget">Back to widget page</a>
+    </div>
+
+    <section class="pdp-layout">
+      <div class="gallery-card">
+        <div class="gallery-grid">
+          <figure class="media large">
+            <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=1200&q=80" alt="Female model wearing a grey T-shirt" />
+            <figcaption class="media-label">Front view</figcaption>
+          </figure>
+          <figure class="media tall">
+            <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=80" alt="Female model wearing a T-shirt and jeans" />
+            <figcaption class="media-label">Full look</figcaption>
+          </figure>
+          <figure class="media small">
+            <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=80" alt="Back view of a model wearing a T-shirt" />
+            <figcaption class="media-label">Back view</figcaption>
+          </figure>
+          <figure class="media small">
+            <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=80" alt="Close up of grey T-shirt fabric" />
+            <figcaption class="media-label">Fabric close-up</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <aside class="info-card">
+        <div class="product-kicker">Mango / women / T-shirt</div>
+        <h1 class="product-title">Cotton T-shirt with short sleeves</h1>
+        <div class="price-row">
+          <span class="price-now">€39.99</span>
+          <span class="price-old">€49.99</span>
+          <span class="badge-sale">-20%</span>
+        </div>
+
+        <div class="product-meta">
+          <div>Lightweight cotton blend, regular fit, short sleeves.</div>
+          <div>The model wears size S and is 179 cm tall.</div>
+        </div>
+
+        <div class="fit-widget-inline">
+          <div class="section-heading">
+            <div>
+              <h2>FitMatch widget</h2>
+              <p>Use the size you know from another brand.</p>
+            </div>
+            <span class="badge">In-product</span>
+          </div>
+
+          <div class="widget-shell">
+            <div class="widget-shell-top">
+              <div>
+                <h3>Find your size in Mango</h3>
+                <p>Translate from a known brand size into the closest Mango recommendation.</p>
+              </div>
+              <div class="widget-chip-row">
+                <span class="widget-chip">Quick</span>
+                <span class="widget-chip">No guesswork</span>
+              </div>
+            </div>
+
+            <div class="widget-grid">
+              <article class="widget-form card">
+                <div class="widget-header">
+                  <h3>Translate size</h3>
+                  <p>Use your known size from another brand and see what Mango size fits best.</p>
+                </div>
+
+                <form id="compareForm" class="form-grid">
+                  <label>
+                    I wear this size at
+                    <select id="sourceBrand"></select>
+                  </label>
+
+                  <label>
+                    My usual size
+                    <select id="sourceSize"></select>
+                  </label>
+
+                  <label>
+                    I want to buy from
+                    <select id="targetBrand"></select>
+                  </label>
+
+                  <label>
+                    Product type
+                    <select id="productType">
+                      <option value="tshirt">Women's T-shirt</option>
+                    </select>
+                  </label>
+
+                  <button type="submit">Get recommendation</button>
+                </form>
+              </article>
+
+              <article class="widget-result card">
+                <h3>Recommendation</h3>
+                <div id="translationResult" class="result-box">
+                  <h3>Translation result</h3>
+                  <p>Select two brands to see how the same size translates.</p>
+                </div>
+                <div class="widget-summary">
+                  <div>
+                    <strong>How this helps</strong>
+                    <p>The widget sits where buying decisions happen, not on a separate info page.</p>
+                  </div>
+                  <div>
+                    <strong>What you can test</strong>
+                    <p>Whether shoppers trust this enough to choose a size before checkout.</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <div class="size-guide">
+          <h3>Size guide</h3>
+          <div class="size-bars">
+            <div class="size-row"><strong>XS</strong><div class="track"><div class="fill" style="width:28%"></div></div><span>82 cm</span></div>
+            <div class="size-row"><strong>S</strong><div class="track"><div class="fill" style="width:45%"></div></div><span>88 cm</span></div>
+            <div class="size-row"><strong>M</strong><div class="track"><div class="fill" style="width:62%"></div></div><span>92 cm</span></div>
+            <div class="size-row"><strong>L</strong><div class="track"><div class="fill" style="width:82%"></div></div><span>98 cm</span></div>
+            <div class="size-row"><strong>XL</strong><div class="track"><div class="fill" style="width:100%"></div></div><span>104 cm</span></div>
+          </div>
+        </div>
+
+        <div class="detail-block">
+          <h3>Materials & fit</h3>
+          <p>
+            80% organic cotton and 20% recycled cotton. Regular silhouette with a slightly relaxed body fit.
+            This is where the widget would reduce uncertainty by translating a familiar brand size into the most likely Mango size.
+          </p>
+        </div>
+      </aside>
+    </section>
+  </main>
+</body>
+</html>

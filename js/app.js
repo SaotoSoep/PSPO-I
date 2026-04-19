@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const sizingDataset = window.FitMatchData;
   const normalizeApi = window.FitMatchNormalize;
   const translateSize = window.FitMatchTranslate;
+  const widgetConfig = window.FitMatchWidgetConfig || {};
 
   const brandGrid = document.getElementById("datasetGrid");
   const sourceBrandSelect = document.getElementById("sourceBrand");
@@ -61,8 +62,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     sourceBrandSelect.innerHTML = options;
     targetBrandSelect.innerHTML = options;
-    sourceBrandSelect.value = brands[0]?.id ?? "";
-    targetBrandSelect.value = brands[1]?.id ?? brands[0]?.id ?? "";
+    sourceBrandSelect.value = widgetConfig.sourceBrand && brands.some((brand) => brand.id === widgetConfig.sourceBrand)
+      ? widgetConfig.sourceBrand
+      : brands[0]?.id ?? "";
+    targetBrandSelect.value = widgetConfig.targetBrand && brands.some((brand) => brand.id === widgetConfig.targetBrand)
+      ? widgetConfig.targetBrand
+      : brands[1]?.id ?? brands[0]?.id ?? "";
 
     refreshSizes();
   }
@@ -75,7 +80,11 @@ document.addEventListener("DOMContentLoaded", () => {
       .map((entry) => `<option value="${entry.size}">${entry.size}</option>`)
       .join("");
 
-    sourceSizeSelect.value = chart.find((entry) => entry.size === "S") ? "S" : chart[0]?.size ?? "S";
+    const preferredSize = widgetConfig.sourceSize;
+    const defaultSize = chart.find((entry) => entry.size === "S") ? "S" : chart[0]?.size ?? "S";
+    sourceSizeSelect.value = preferredSize && chart.some((entry) => entry.size === preferredSize)
+      ? preferredSize
+      : defaultSize;
   }
 
   function renderTranslation() {
