@@ -1,1 +1,163 @@
-﻿<!doctype html><html lang="nl"><head>  <meta charset="utf-8" />  <meta name="viewport" content="width=device-width, initial-scale=1" />  <title>PSPO 1 Oefenquiz</title>  <meta    name="description"    content="Oefen de Scrum Product Owner sample exam vragen in een overzichtelijke quiz met score, navigatie en correcte antwoorden per vraag."  />  <link rel="preconnect" href="https://fonts.googleapis.com" />  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />  <link    href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Source+Sans+3:wght@400;500;600;700;800&display=swap"    rel="stylesheet"  />  <link rel="stylesheet" href="./css/styles.css" />  <script src="./js/questions.js" defer></script>  <script src="./js/app.js" defer></script></head><body>  <div class="page-glow page-glow-a"></div>  <div class="page-glow page-glow-b"></div>  <main class="app-shell">    <section class="hero card">      <div class="hero-copy">        <p class="eyebrow">PSPO 1 oefenquiz</p>        <h1>Oefen de sample exam vragen zonder eindeloos door een PDF te scrollen.</h1>        <p class="lead">          Beantwoord de vragen stap voor stap, kijk meteen je voortgang terug en zie aan het          einde direct welke antwoorden correct waren. Alles blijft lokaal opgeslagen, zodat je          gewoon verder kunt waar je was gebleven.        </p>        <div class="hero-actions">          <button id="startBtn" class="primary-action" type="button">Start of ga verder</button>          <a class="secondary-action" href="./Scrum%20Product%20Owner%20Sample%20Exam%20Questions.pdf" download>            Open bron-PDF          </a>          <button id="resetBtnTop" class="ghost-action" type="button">Reset quiz</button>        </div>        <div class="hero-notes">          <span>52 vragen</span>          <span>Directe score</span>          <span>Correcte antwoorden per vraag</span>        </div>      </div>      <aside class="hero-panel">        <div class="panel-card accent">          <p class="panel-label">Waarom dit fijner werkt</p>          <ul>            <li>Je hoeft niet onderaan de PDF naar de antwoorden te zoeken.</li>            <li>Elke vraag is duidelijk gescheiden en navigeerbaar.</li>            <li>Na afloop zie je in 1 overzicht je score en alle juiste antwoorden.</li>          </ul>        </div>        <div class="panel-card">          <p class="panel-label">Bronnen</p>          <p>            De vraagtekst komt uit de sample PDF. De antwoorden volgen de Scrum Guide 2020 en            de antwoordsectie in de PDF voor de latere vragen.          </p>        </div>      </aside>    </section>    <section class="stats-grid" aria-label="Quiz overzicht">      <article class="stat-card card">        <span class="stat-label">Voortgang</span>        <strong id="answeredCount">0/52</strong>        <p>Beantwoordde vragen worden automatisch opgeslagen.</p>      </article>      <article class="stat-card card">        <span class="stat-label">Score</span>        <strong id="scoreCount">-</strong>        <p>Verschijnt zodra je de quiz hebt ingeleverd.</p>      </article>      <article class="stat-card card">        <span class="stat-label">Status</span>        <strong id="statusLabel">Nog niet gestart</strong>        <p id="statusDetail">Je staat klaar om te beginnen.</p>      </article>    </section>    <section class="quiz-layout">      <article class="card quiz-card">        <div class="quiz-header">          <div>            <p class="eyebrow">Vraagweergave</p>            <h2 id="quizTitle">Vraag 1</h2>          </div>          <div class="quiz-meta">            <span id="questionMode" class="pill">Een antwoord</span>            <span id="questionCounter" class="pill pill-soft">0 van 52</span>          </div>        </div>        <div class="progress-track" aria-hidden="true">          <div id="progressFill" class="progress-fill"></div>        </div>        <div id="questionHost" class="question-host"></div>        <div class="quiz-actions">          <button id="prevBtn" type="button">Vorige</button>          <button id="nextBtn" type="button">Volgende</button>          <button id="submitBtn" class="primary-action" type="button">Score zien</button>        </div>      </article>      <aside class="card side-card">        <div class="side-section">          <div class="side-header">            <div>              <p class="eyebrow">Navigator</p>              <h3>Snel naar een vraag</h3>            </div>            <button id="clearBtn" type="button" class="ghost-action small">Wis antwoorden</button>          </div>          <div id="navigator" class="navigator" aria-label="Vraag navigator"></div>        </div>        <div class="side-section info-box">          <h3>Tips</h3>          <ul>            <li>Meerdere antwoorden? Kies alleen de opties die de vraag echt vraagt.</li>            <li>Je kunt tussendoor schakelen tussen vragen zonder iets kwijt te raken.</li>            <li>Na het inleveren zie je per vraag jouw keuze en het correcte antwoord.</li>          </ul>        </div>      </aside>    </section>    <section id="results" class="card results-card hidden" aria-live="polite">      <div class="results-header">        <div>          <p class="eyebrow">Resultaat</p>          <h2>Je score en review</h2>        </div>        <div id="scoreBadge" class="score-badge">-</div>      </div>      <div id="resultsSummary" class="results-summary"></div>      <div id="reviewList" class="review-list"></div>      <div class="results-actions">        <button id="restartBtn" class="primary-action" type="button">Opnieuw beginnen</button>        <a class="secondary-action" href="./Scrum%20Product%20Owner%20Sample%20Exam%20Questions.pdf" download>          PDF opnieuw openen        </a>      </div>    </section>  </main></body></html>
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PSPO 1 Exam Practice</title>
+  <meta
+    name="description"
+    content="Oefen de PSPO I examenvragen in een exam-like omgeving met timer, willekeurige vraagvolgorde en score."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Source+Sans+3:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="./css/styles.css" />
+  <script src="./js/questions.js" defer></script>
+  <script src="./js/app.js" defer></script>
+</head>
+<body>
+  <div class="page-glow page-glow-a"></div>
+  <div class="page-glow page-glow-b"></div>
+
+  <main class="app-shell">
+    <section class="hero card">
+      <div class="hero-copy">
+        <p class="eyebrow">PSPO I exam practice</p>
+        <h1>Train alsof je in het echte examen zit.</h1>
+        <p class="lead">
+          Elke examensessie bestaat uit 80 willekeurige vragen uit de database. Je hebt 60
+          minuten en moet minstens 85% halen om te slagen.
+        </p>
+
+        <div class="hero-actions">
+          <button id="startBtn" class="primary-action" type="button">Start examen</button>
+          <button id="resetBtnTop" class="secondary-action" type="button">Nieuwe examen</button>
+          <a class="ghost-action" href="./Scrum%20Product%20Owner%20Sample%20Exam%20Questions.pdf" download>
+            Open bron-PDF
+          </a>
+        </div>
+
+        <div class="hero-notes">
+          <span>80 vragen per examen</span>
+          <span>60 minuten</span>
+          <span>Slagingsgrens: 85%</span>
+        </div>
+      </div>
+
+      <aside class="hero-panel">
+        <div class="panel-card accent">
+          <p class="panel-label">Exam setting</p>
+          <ul>
+            <li>Nieuwe start = nieuwe willekeurige selectie van 80 vragen.</li>
+            <li>De timer loopt direct zodra je het examen start.</li>
+            <li>Na afloop zie je je score, pass/fail en per vraag de feedback.</li>
+          </ul>
+        </div>
+
+        <div class="panel-card">
+          <p class="panel-label">Bronnen</p>
+          <p>
+            De bank combineert de officiële sample PDF met de extra scenario-vragen uit de
+            aangeleverde Word-bijlage.
+          </p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="stats-grid" aria-label="Examen overzicht">
+      <article class="stat-card card">
+        <span class="stat-label">Voortgang</span>
+        <strong id="answeredCount">0/80</strong>
+        <p>Beantwoordde vragen worden automatisch opgeslagen.</p>
+      </article>
+      <article class="stat-card card">
+        <span class="stat-label">Score</span>
+        <strong id="scoreCount">-</strong>
+        <p>Verschijnt zodra je het examen inlevert.</p>
+      </article>
+      <article class="stat-card card">
+        <span class="stat-label">Tijd over</span>
+        <strong id="timerLabel">60:00</strong>
+        <p>De timer loopt alleen tijdens een actieve examensessie.</p>
+      </article>
+      <article class="stat-card card">
+        <span class="stat-label">Slaaggrens</span>
+        <strong id="passLabel">85%</strong>
+        <p>Je hebt minimaal deze score nodig om te slagen.</p>
+      </article>
+    </section>
+
+    <section class="quiz-layout">
+      <article class="card quiz-card">
+        <div class="quiz-header">
+          <div>
+            <p class="eyebrow">Examenvraag</p>
+            <h2 id="quizTitle">Nog niet gestart</h2>
+          </div>
+          <div class="quiz-meta">
+            <span id="questionMode" class="pill">Examen</span>
+            <span id="questionCounter" class="pill pill-soft">0 van 80</span>
+          </div>
+        </div>
+
+        <div class="progress-track" aria-hidden="true">
+          <div id="progressFill" class="progress-fill"></div>
+        </div>
+
+        <div id="questionHost" class="question-host"></div>
+
+        <div class="quiz-actions">
+          <button id="prevBtn" type="button">Vorige</button>
+          <button id="nextBtn" type="button">Volgende</button>
+          <button id="submitBtn" class="primary-action" type="button">Inleveren</button>
+        </div>
+      </article>
+
+      <aside class="card side-card">
+        <div class="side-section">
+          <div class="side-header">
+            <div>
+              <p class="eyebrow">Navigator</p>
+              <h3>Snel naar een vraag</h3>
+            </div>
+            <button id="clearBtn" type="button" class="ghost-action small">Wis antwoorden</button>
+          </div>
+          <div id="navigator" class="navigator" aria-label="Vraag navigator"></div>
+        </div>
+
+        <div class="side-section info-box">
+          <h3>Tips</h3>
+          <ul>
+            <li>Meerdere antwoorden? Kies alleen de opties die de vraag echt vraagt.</li>
+            <li>Je kunt tussendoor schakelen tussen vragen zonder iets kwijt te raken.</li>
+            <li>Na het inleveren zie je per vraag jouw keuze, het correcte antwoord en feedback.</li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+
+    <section id="results" class="card results-card hidden" aria-live="polite">
+      <div class="results-header">
+        <div>
+          <p class="eyebrow">Resultaat</p>
+          <h2>Je score en review</h2>
+        </div>
+        <div id="scoreBadge" class="score-badge">-</div>
+      </div>
+
+      <div id="resultsSummary" class="results-summary"></div>
+      <div id="reviewList" class="review-list"></div>
+
+      <div class="results-actions">
+        <button id="restartBtn" class="primary-action" type="button">Opnieuw beginnen</button>
+        <a class="secondary-action" href="./Scrum%20Product%20Owner%20Sample%20Exam%20Questions.pdf" download>
+          PDF opnieuw openen
+        </a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

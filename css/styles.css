@@ -186,6 +186,9 @@ a {
 .secondary-action,
 .ghost-action,
 .quiz-actions button:not(.primary-action) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: rgba(255, 255, 255, 0.04);
   color: var(--text);
   border: 1px solid rgba(255, 255, 255, 0.14);
@@ -261,7 +264,7 @@ a {
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px;
   margin-bottom: 20px;
 }
@@ -590,6 +593,27 @@ a {
 
 .feedback-box p {
   margin: 0;
+}
+
+.start-placeholder {
+  display: grid;
+  gap: 10px;
+  padding: 26px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(180deg, rgba(61, 214, 208, 0.12), rgba(255, 255, 255, 0.04));
+  border: 1px solid rgba(61, 214, 208, 0.2);
+  color: var(--muted-strong);
+}
+
+.start-placeholder h3 {
+  margin: 0;
+  font-family: 'Merriweather', Georgia, serif;
+  font-size: 1.3rem;
+}
+
+.start-placeholder p {
+  margin: 0;
+  line-height: 1.65;
 }
 
 .review-item .badge {

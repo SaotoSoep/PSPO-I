@@ -1,12 +1,18 @@
-const QUESTIONS = window.PSPO_QUESTIONS || [];
-const QUESTION_MAP = new Map(QUESTIONS.map((question) => [question.number, question]));
-const STORAGE_KEY = 'pspo-quiz-state-v1';
+const QUESTION_BANK = window.PSPO_QUESTIONS || [];
+const STORAGE_KEY = 'pspo-exam-state-v2';
+const EXAM_QUESTION_COUNT = 80;
+const EXAM_DURATION_SECONDS = 60 * 60;
+const PASS_PERCENT = 85;
+
+const questionById = new Map(QUESTION_BANK.map((question) => [question.id, question]));
 
 const state = {
   currentIndex: 0,
   selected: {},
   submitted: false,
-  questionOrder: [],
+  startedAt: null,
+  finishedAt: null,
+  questionIds: [],
 };
 
 const els = {
@@ -25,38 +31,13 @@ const els = {
   progressFill: document.getElementById('progressFill'),
   answeredCount: document.getElementById('answeredCount'),
   scoreCount: document.getElementById('scoreCount'),
-  statusLabel: document.getElementById('statusLabel'),
-  statusDetail: document.getElementById('statusDetail'),
+  timerLabel: document.getElementById('timerLabel'),
+  passLabel: document.getElementById('passLabel'),
   results: document.getElementById('results'),
   scoreBadge: document.getElementById('scoreBadge'),
   resultsSummary: document.getElementById('resultsSummary'),
   reviewList: document.getElementById('reviewList'),
 };
-
-const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
-
-function shuffle(array) {
-  const copy = [...array];
-  for (let index = copy.length - 1; index > 0; index -= 1) {
-    const swapIndex = Math.floor(Math.random() * (index + 1));
-    [copy[index], copy[swapIndex]] = [copy[swapIndex], copy[index]];
-  }
-  return copy;
-}
-
-function createQuestionOrder() {
-  return shuffle(QUESTIONS.map((question) => question.number));
-}
-
-function getQuizQuestions() {
-  return state.questionOrder
-    .map((questionNumber) => QUESTION_MAP.get(questionNumber))
-    .filter(Boolean);
-}
-
-function getQuestionAt(index) {
-  return getQuizQuestions()[index];
-}
 
 function escapeHtml(value) {
   return String(value)
@@ -67,15 +48,31 @@ function escapeHtml(value) {
     .replaceAll("'", '&#39;');
 }
 
-function saveState() {
-  localStorage.setItem(
-    STORAGE_KEY,
-    JSON.stringify({
-      currentIndex: state.currentIndex,
-      selected: state.selected,
-      questionOrder: state.questionOrder,
-    }),
-  );
+function shuffle(array) {
+  const copy = [...array];
+  for (let i = copy.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
+
+function formatTime(totalSeconds) {
+  const seconds = Math.max(0, totalSeconds);
+  const minutes = Math.floor(seconds / 60);
+  const remainingSeconds = seconds % 60;
+  return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
+}
+
+function persistState() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify({
+    currentIndex: state.currentIndex,
+    selected: state.selected,
+    submitted: state.submitted,
+    startedAt: state.startedAt,
+    finishedAt: state.finishedAt,
+    questionIds: state.questionIds,
+  }));
 }
 
 function loadState() {
@@ -86,58 +83,53 @@ function loadState() {
     }
 
     const parsed = JSON.parse(raw);
+    if (Array.isArray(parsed.questionIds) && parsed.questionIds.length === EXAM_QUESTION_COUNT) {
+      const filtered = parsed.questionIds
+        .filter((id) => questionById.has(id));
+      if (filtered.length === EXAM_QUESTION_COUNT) {
+        state.questionIds = filtered;
+      }
+    }
+
     if (typeof parsed.currentIndex === 'number') {
-      state.currentIndex = clamp(parsed.currentIndex, 0, QUESTIONS.length - 1);
+      state.currentIndex = Math.min(EXAM_QUESTION_COUNT - 1, Math.max(0, parsed.currentIndex));
     }
 
     if (parsed.selected && typeof parsed.selected === 'object') {
       state.selected = parsed.selected;
     }
 
-    if (Array.isArray(parsed.questionOrder) && parsed.questionOrder.length === QUESTIONS.length) {
-      state.questionOrder = parsed.questionOrder
-        .map((value) => Number(value))
-        .filter((value) => Number.isFinite(value) && QUESTION_MAP.has(value));
-    }
+    state.submitted = Boolean(parsed.submitted);
+    state.startedAt = typeof parsed.startedAt === 'number' ? parsed.startedAt : null;
+    state.finishedAt = typeof parsed.finishedAt === 'number' ? parsed.finishedAt : null;
   } catch {
     localStorage.removeItem(STORAGE_KEY);
   }
 }
 
-function persistAndRender() {
-  saveState();
+function getCurrentExamQuestions() {
+  return state.questionIds
+    .map((id) => questionById.get(id))
+    .filter(Boolean);
+}
+
+function getQuestionAt(index) {
+  return getCurrentExamQuestions()[index];
+}
+
+function getQuestionSelection(questionId) {
+  const value = state.selected[questionId];
+  return Array.isArray(value) ? value.map(String) : [];
+}
+
+function setQuestionSelection(questionId, selection) {
+  state.selected[questionId] = Array.from(new Set(selection.map(String)));
+  persistState();
   render();
 }
 
-function getQuestionSelection(questionNumber) {
-  const value = state.selected[questionNumber];
-  if (!Array.isArray(value)) {
-    return [];
-  }
-  return value.map(String);
-}
-
-function setQuestionSelection(questionNumber, selection) {
-  state.selected[questionNumber] = Array.from(new Set(selection.map(String)));
-  persistAndRender();
-}
-
-function isQuestionAnswered(questionNumber) {
-  return getQuestionSelection(questionNumber).length > 0;
-}
-
-function getFeedback(question) {
-  if (typeof question.feedback === 'string' && question.feedback.trim()) {
-    return question.feedback.trim();
-  }
-
-  const correctText = formatAnswerText(question, question.answer);
-
-  if (question.chooseAll) {
-    return `De juiste keuzes zijn ${correctText}. Dat is de combinatie die het beste aansluit bij de Scrum Guide voor deze vraag.`;
-  }
-
-  return `De juiste keuze is ${correctText}. Dat is de Scrum-interpretatie die past bij deze vraag.`;
+function isQuestionAnswered(questionId) {
+  return getQuestionSelection(questionId).length > 0;
 }
 
 function hasQuestionCorrectAnswer(question, selection) {
@@ -146,19 +138,46 @@ function hasQuestionCorrectAnswer(question, selection) {
   if (selected.length !== correct.length) {
     return false;
   }
-
   return selected.every((value, index) => value === correct[index]);
 }
 
 function getCorrectCount() {
-  return getQuizQuestions().reduce((count, question) => {
-    const selection = getQuestionSelection(question.number);
+  return getCurrentExamQuestions().reduce((count, question) => {
+    const selection = getQuestionSelection(question.id);
     return count + (hasQuestionCorrectAnswer(question, selection) ? 1 : 0);
   }, 0);
 }
 
 function getAnsweredCount() {
-  return getQuizQuestions().reduce((count, question) => count + (isQuestionAnswered(question.number) ? 1 : 0), 0);
+  return getCurrentExamQuestions().reduce(
+    (count, question) => count + (isQuestionAnswered(question.id) ? 1 : 0),
+    0,
+  );
+}
+
+function getRemainingSeconds() {
+  if (!state.startedAt) {
+    return EXAM_DURATION_SECONDS;
+  }
+
+  if (state.submitted && state.finishedAt) {
+    const elapsed = Math.floor((state.finishedAt - state.startedAt) / 1000);
+    return Math.max(0, EXAM_DURATION_SECONDS - elapsed);
+  }
+
+  const elapsed = Math.floor((Date.now() - state.startedAt) / 1000);
+  return Math.max(0, EXAM_DURATION_SECONDS - elapsed);
+}
+
+function getFeedback(question) {
+  if (typeof question.feedback === 'string' && question.feedback.trim()) {
+    return question.feedback.trim();
+  }
+
+  const correctText = formatAnswerText(question, question.answer);
+  return question.chooseAll
+    ? `De juiste keuzes zijn ${correctText}.`
+    : `De juiste keuze is ${correctText}.`;
 }
 
 function formatAnswerText(question, ids) {
@@ -174,71 +193,116 @@ function formatAnswerText(question, ids) {
   return labels.join('; ');
 }
 
-function renderQuestion() {
-  const question = getQuestionAt(state.currentIndex);
-  if (!question) {
-    els.questionHost.innerHTML = '';
+function createNewExam() {
+  const questionIds = shuffle(QUESTION_BANK.map((question) => question.id)).slice(0, EXAM_QUESTION_COUNT);
+  state.currentIndex = 0;
+  state.selected = {};
+  state.submitted = false;
+  state.startedAt = Date.now();
+  state.finishedAt = null;
+  state.questionIds = questionIds;
+  persistState();
+  render();
+  els.questionHost.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function resumeOrStartExam() {
+  if (!state.questionIds.length || state.submitted) {
+    createNewExam();
     return;
   }
 
-  const selection = getQuestionSelection(question.number);
+  if (!state.startedAt) {
+    state.startedAt = Date.now();
+    persistState();
+  }
+
+  render();
+  els.questionHost.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function submitExam() {
+  const question = getQuestionAt(state.currentIndex);
+  if (question) {
+    const inputs = Array.from(els.questionHost.querySelectorAll('input'));
+    const selected = inputs.filter((input) => input.checked).map((input) => input.value);
+    setQuestionSelection(question.id, selected);
+  }
+
+  state.submitted = true;
+  state.finishedAt = Date.now();
+  persistState();
+  render();
+  els.results.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function autoSubmitIfExpired() {
+  if (!state.submitted && state.startedAt && getRemainingSeconds() <= 0) {
+    submitExam();
+  }
+}
+
+function renderQuestion() {
+  const question = getQuestionAt(state.currentIndex);
+  if (!question) {
+    els.quizTitle.textContent = state.questionIds.length ? 'Vraag niet gevonden' : 'Nog niet gestart';
+    els.questionHost.innerHTML = state.questionIds.length
+      ? '<p>De vraag kon niet worden geladen.</p>'
+      : '<div class="start-placeholder"><h3>Klik op "Start examen" om te beginnen.</h3><p>Je krijgt 80 willekeurige vragen en 60 minuten om het examen af te ronden.</p></div>';
+    return;
+  }
+
+  const selection = getQuestionSelection(question.id);
   const inputType = question.chooseAll ? 'checkbox' : 'radio';
-  const modeLabel = question.chooseAll ? 'Meerdere antwoorden' : 'Een antwoord';
 
   els.quizTitle.textContent = `Vraag ${state.currentIndex + 1}`;
-  els.questionMode.textContent = modeLabel;
-  els.questionCounter.textContent = `${state.currentIndex + 1} van ${QUESTIONS.length}`;
+  els.questionMode.textContent = question.chooseAll ? 'Meerdere antwoorden' : 'Een antwoord';
+  els.questionCounter.textContent = `${state.currentIndex + 1} van ${EXAM_QUESTION_COUNT}`;
+
   els.questionHost.innerHTML = `
     <article class="question-card">
       <h3>${escapeHtml(question.prompt)}</h3>
-      <p class="question-help">
-        ${question.chooseAll ? 'Kies alle opties die kloppen.' : 'Kies het beste antwoord.'}
-      </p>
+      <p class="question-help">${question.chooseAll ? 'Kies alle opties die kloppen.' : 'Kies het beste antwoord.'}</p>
       <div class="options">
-        ${question.options
-          .map((option) => {
-            const checked = selection.includes(option.id) ? 'checked' : '';
-            const selectedClass = selection.includes(option.id) ? 'selected' : '';
-            return `
-              <label class="option ${selectedClass}">
-                <input
-                  type="${inputType}"
-                  name="question-${question.number}"
-                  value="${escapeHtml(option.id)}"
-                  ${checked}
-                />
-                <span class="option-id">${escapeHtml(option.id)}</span>
-                <span class="option-text">${escapeHtml(option.text)}</span>
-              </label>
-            `;
-          })
-          .join('')}
+        ${question.options.map((option) => {
+          const checked = selection.includes(option.id) ? 'checked' : '';
+          const selectedClass = selection.includes(option.id) ? 'selected' : '';
+          return `
+            <label class="option ${selectedClass}">
+              <input
+                type="${inputType}"
+                name="question-${question.id}"
+                value="${escapeHtml(option.id)}"
+                ${checked}
+              />
+              <span class="option-id">${escapeHtml(option.id)}</span>
+              <span class="option-text">${escapeHtml(option.text)}</span>
+            </label>
+          `;
+        }).join('')}
       </div>
     </article>
   `;
 }
 
 function renderNavigator() {
-  const quizQuestions = getQuizQuestions();
-  const selectedIndex = state.currentIndex;
+  const questions = getCurrentExamQuestions();
 
-  els.navigator.innerHTML = quizQuestions.map((question, index) => {
-    const selection = getQuestionSelection(question.number);
+  els.navigator.innerHTML = questions.map((question, index) => {
+    const selection = getQuestionSelection(question.id);
     const answered = selection.length > 0;
     const correct = state.submitted && hasQuestionCorrectAnswer(question, selection);
     const wrong = state.submitted && answered && !correct;
 
     const classes = [
-      index === selectedIndex ? 'current' : '',
+      index === state.currentIndex ? 'current' : '',
       answered ? 'answered' : '',
       correct ? 'correct' : '',
       wrong ? 'wrong' : '',
-    ]
-      .filter(Boolean)
-      .join(' ');
+    ].filter(Boolean).join(' ');
 
     return `
-      <button type="button" class="${classes}" data-index="${index}" aria-label="Ga naar vraag ${question.number}">
+      <button type="button" class="${classes}" data-index="${index}" aria-label="Ga naar vraag ${index + 1}">
         ${index + 1}
       </button>
     `;
@@ -246,43 +310,44 @@ function renderNavigator() {
 }
 
 function renderStats() {
-  const quizQuestions = getQuizQuestions();
+  const questions = getCurrentExamQuestions();
   const answeredCount = getAnsweredCount();
   const correctCount = getCorrectCount();
-  const progress = quizQuestions.length ? (answeredCount / quizQuestions.length) * 100 : 0;
+  const progress = questions.length ? (answeredCount / questions.length) * 100 : 0;
+  const remainingSeconds = getRemainingSeconds();
 
-  els.answeredCount.textContent = `${answeredCount}/${quizQuestions.length}`;
+  els.answeredCount.textContent = `${answeredCount}/${EXAM_QUESTION_COUNT}`;
   els.progressFill.style.width = `${progress}%`;
+  els.timerLabel.textContent = formatTime(remainingSeconds);
 
-  if (state.submitted) {
-    els.scoreCount.textContent = `${correctCount}/${quizQuestions.length}`;
-    els.statusLabel.textContent = 'Ingeleverd';
-    els.statusDetail.textContent = `${correctCount} volledig juiste antwoorden.`;
+  if (state.questionIds.length === 0) {
+    els.scoreCount.textContent = '-';
+  } else if (state.submitted) {
+    els.scoreCount.textContent = `${correctCount}/${EXAM_QUESTION_COUNT}`;
   } else {
     els.scoreCount.textContent = '-';
-    els.statusLabel.textContent = answeredCount > 0 ? 'Bezig' : 'Nog niet gestart';
-    els.statusDetail.textContent =
-      answeredCount > 0
-        ? `${answeredCount} vraag${answeredCount === 1 ? '' : 'en'} al ingevuld.`
-        : 'Je staat klaar om te beginnen.';
   }
 }
 
 function renderButtons() {
-  const quizQuestions = getQuizQuestions();
-  els.prevBtn.disabled = state.currentIndex === 0;
-  els.nextBtn.disabled = state.currentIndex >= quizQuestions.length - 1;
-  els.submitBtn.disabled = quizQuestions.length === 0;
-  els.submitBtn.textContent = state.submitted ? 'Score opnieuw berekenen' : 'Score zien';
+  const hasExam = state.questionIds.length > 0;
+  els.prevBtn.disabled = !hasExam || state.currentIndex === 0;
+  els.nextBtn.disabled = !hasExam || state.currentIndex >= EXAM_QUESTION_COUNT - 1;
+  els.submitBtn.disabled = !hasExam;
+  els.submitBtn.textContent = state.submitted ? 'Ingeleverd' : 'Inleveren';
+  els.startBtn.textContent = hasExam && !state.submitted ? 'Ga verder' : 'Start examen';
+  els.resetBtnTop.textContent = 'Nieuw examen';
 }
 
 function renderReview() {
-  const quizQuestions = getQuizQuestions();
+  const questions = getCurrentExamQuestions();
   const answeredCount = getAnsweredCount();
   const correctCount = getCorrectCount();
   const incorrectCount = answeredCount - correctCount;
-  const unansweredCount = quizQuestions.length - answeredCount;
-  const percentage = quizQuestions.length ? Math.round((correctCount / quizQuestions.length) * 100) : 0;
+  const unansweredCount = questions.length - answeredCount;
+  const percentage = questions.length ? Math.round((correctCount / questions.length) * 100) : 0;
+  const passingCount = Math.ceil(EXAM_QUESTION_COUNT * PASS_PERCENT / 100);
+  const passed = state.submitted && correctCount >= passingCount;
 
   els.results.classList.toggle('hidden', !state.submitted);
 
@@ -293,12 +358,12 @@ function renderReview() {
     return;
   }
 
-  els.scoreBadge.textContent = `${correctCount}/${quizQuestions.length} juist`;
+  els.scoreBadge.textContent = passed ? 'Geslaagd' : 'Niet geslaagd';
   els.resultsSummary.innerHTML = `
     <div class="results-metrics">
       <div class="metric">
         <strong>${correctCount}</strong>
-        <span>volledig correcte antwoorden</span>
+        <span>correcte antwoorden</span>
       </div>
       <div class="metric">
         <strong>${incorrectCount}</strong>
@@ -310,20 +375,17 @@ function renderReview() {
       </div>
     </div>
     <p>
-      Je eindscore is <strong>${percentage}%</strong>. Hieronder zie je per vraag wat jij koos en
-      wat het correcte antwoord is.
+      Je eindscore is <strong>${percentage}%</strong>. Voor slagen heb je minstens <strong>${PASS_PERCENT}%</strong>
+      nodig, dus minimaal <strong>${passingCount}/${EXAM_QUESTION_COUNT}</strong> juiste antwoorden.
+      ${passed ? 'Je bent geslaagd.' : 'Je bent niet geslaagd.'}
     </p>
   `;
 
-  els.reviewList.innerHTML = quizQuestions.map((question, index) => {
-    const selection = getQuestionSelection(question.number);
+  els.reviewList.innerHTML = questions.map((question, index) => {
+    const selection = getQuestionSelection(question.id);
     const correct = hasQuestionCorrectAnswer(question, selection);
     const answered = selection.length > 0;
-    const statusLabel = correct
-      ? 'Goed'
-      : answered
-        ? 'Nog eens bekijken'
-        : 'Niet beantwoord';
+    const statusLabel = correct ? 'Goed' : answered ? 'Nog eens bekijken' : 'Niet beantwoord';
     const statusClass = correct ? 'good' : answered ? 'bad' : 'neutral';
 
     return `
@@ -350,7 +412,38 @@ function renderReview() {
   }).join('');
 }
 
+function renderStartPlaceholder() {
+  if (state.questionIds.length) {
+    return;
+  }
+
+  els.questionHost.innerHTML = `
+    <div class="start-placeholder">
+      <h3>Klik op "Start examen" om te beginnen.</h3>
+      <p>Je krijgt 80 willekeurige vragen en 60 minuten om het examen af te ronden.</p>
+    </div>
+  `;
+}
+
 function render() {
+  if (!state.questionIds.length) {
+    els.quizTitle.textContent = 'Nog niet gestart';
+    els.questionMode.textContent = 'Examen';
+    els.questionCounter.textContent = `0 van ${EXAM_QUESTION_COUNT}`;
+    els.progressFill.style.width = '0%';
+    els.answeredCount.textContent = `0/${EXAM_QUESTION_COUNT}`;
+    els.scoreCount.textContent = '-';
+    els.timerLabel.textContent = formatTime(EXAM_DURATION_SECONDS);
+    els.results.classList.add('hidden');
+    renderStartPlaceholder();
+    renderButtons();
+    els.navigator.innerHTML = '';
+    els.resultsSummary.innerHTML = '';
+    els.reviewList.innerHTML = '';
+    els.scoreBadge.textContent = '-';
+    return;
+  }
+
   renderQuestion();
   renderNavigator();
   renderStats();
@@ -358,44 +451,10 @@ function render() {
   renderReview();
 }
 
-function goToQuestion(index) {
-  state.currentIndex = clamp(index, 0, getQuizQuestions().length - 1);
-  persistAndRender();
-  els.questionHost.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
 function moveQuestion(delta) {
-  goToQuestion(state.currentIndex + delta);
-}
-
-function collectCurrentSelection() {
-  const question = getQuestionAt(state.currentIndex);
-  if (!question) {
-    return;
-  }
-
-  const inputs = Array.from(els.questionHost.querySelectorAll('input'));
-  const selected = inputs.filter((input) => input.checked).map((input) => input.value);
-  setQuestionSelection(question.number, selected);
-}
-
-function submitQuiz() {
-  collectCurrentSelection();
-  state.submitted = true;
-  persistAndRender();
-  els.results.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
-function resetQuiz() {
-  state.currentIndex = 0;
-  state.selected = {};
-  state.submitted = false;
-  state.questionOrder = createQuestionOrder();
-  persistAndRender();
-  els.questionHost.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
-function focusCurrentQuestion() {
+  state.currentIndex = Math.max(0, Math.min(EXAM_QUESTION_COUNT - 1, state.currentIndex + delta));
+  persistState();
+  render();
   els.questionHost.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
@@ -406,21 +465,21 @@ function attachEvents() {
       return;
     }
 
-    const quizQuestion = getQuestionAt(state.currentIndex);
-    if (!quizQuestion) {
+    const question = getQuestionAt(state.currentIndex);
+    if (!question) {
       return;
     }
 
-    if (quizQuestion.chooseAll) {
+    if (question.chooseAll) {
       const selection = Array.from(
         els.questionHost.querySelectorAll('input:checked'),
         (checked) => checked.value,
       );
-      setQuestionSelection(quizQuestion.number, selection);
+      setQuestionSelection(question.id, selection);
       return;
     }
 
-    setQuestionSelection(quizQuestion.number, [input.value]);
+    setQuestionSelection(question.id, [input.value]);
   });
 
   els.navigator.addEventListener('click', (event) => {
@@ -429,19 +488,21 @@ function attachEvents() {
       return;
     }
 
-    goToQuestion(Number(button.dataset.index));
+    state.currentIndex = Number(button.dataset.index);
+    persistState();
+    render();
   });
 
   els.prevBtn.addEventListener('click', () => moveQuestion(-1));
   els.nextBtn.addEventListener('click', () => moveQuestion(1));
-  els.submitBtn.addEventListener('click', submitQuiz);
-  els.restartBtn.addEventListener('click', resetQuiz);
-  els.startBtn.addEventListener('click', focusCurrentQuestion);
-  els.resetBtnTop.addEventListener('click', resetQuiz);
+  els.submitBtn.addEventListener('click', submitExam);
+  els.restartBtn.addEventListener('click', createNewExam);
+  els.startBtn.addEventListener('click', resumeOrStartExam);
+  els.resetBtnTop.addEventListener('click', createNewExam);
   els.clearBtn.addEventListener('click', () => {
     state.selected = {};
-    state.submitted = false;
-    persistAndRender();
+    persistState();
+    render();
   });
 
   document.addEventListener('keydown', (event) => {
@@ -456,24 +517,34 @@ function attachEvents() {
 }
 
 function init() {
-  if (!QUESTIONS.length) {
-    els.questionHost.innerHTML = '<p>De vragenlijst kon niet worden geladen.</p>';
+  if (!QUESTION_BANK.length) {
+    els.questionHost.innerHTML = '<p>De vragenbank kon niet worden geladen.</p>';
     return;
   }
 
   loadState();
-  if (!state.questionOrder.length) {
-    state.questionOrder = createQuestionOrder();
+  if (!state.questionIds.length && !state.submitted) {
+    render();
+  } else {
+    if (state.questionIds.length !== EXAM_QUESTION_COUNT) {
+      state.questionIds = [];
+      state.currentIndex = 0;
+      state.selected = {};
+      state.submitted = false;
+      state.startedAt = null;
+      state.finishedAt = null;
+    }
+    render();
+    autoSubmitIfExpired();
   }
 
-  if (state.currentIndex >= state.questionOrder.length) {
-    state.currentIndex = 0;
-  }
-
-  state.submitted = false;
-
-  attachEvents();
-  render();
+  setInterval(() => {
+    if (state.questionIds.length && !state.submitted) {
+      renderStats();
+      autoSubmitIfExpired();
+    }
+  }, 1000);
 }
 
+attachEvents();
 init();

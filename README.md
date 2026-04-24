@@ -1,31 +1,33 @@
-# PSPO 1 Oefenquiz
+# PSPO I Exam Practice
 
-Een interactieve oefenwebsite voor de Scrum Product Owner sample exam vragen.
+Een exam-like oefenwebsite voor PSPO I.
 
 ## Wat je krijgt
 
-- Vraag voor vraag oefenen in plaats van eindeloos scrollen door de PDF
-- Directe score na het inleveren
-- Per vraag het correcte antwoord terugzien
-- Lokale opslag van je voortgang in de browser
+- 212 vragen in de database
+- Elke examensessie kiest 80 willekeurige vragen
+- 60 minuten per examen
+- Pass score van 85%
+- Review na afloop met jouw antwoord, het juiste antwoord en feedback
 
 ## Bestanden
 
-- `index.html`
+- `PSPO-I_SaotoSoep.html`
+- `index.html` gebruikt een redirect naar de quizpagina
 - `css/styles.css`
 - `js/questions.js`
 - `js/app.js`
 - `Scrum Product Owner Sample Exam Questions.pdf`
 
-## Bronmateriaal
+## Bronnen
 
-- Scrum Product Owner sample exam PDF van Capgemini Academy
-- Scrum Guide 2020: https://scrumguides.org/scrum-guide.html
+- Scrum Product Owner sample exam PDF
+- `ChatGPT_pspo_160_scenario_questions.docx`
 
 ## Lokaal draaien
 
-Open `index.html` in een browser of serveer de map via een eenvoudige static server.
+Open `PSPO-I_SaotoSoep.html` in een browser of serveer de map via een eenvoudige static server.
 
 ## Opmerking
 
-De quiz is gebouwd om snel te oefenen met de PDF-vragen. Voor vragen 39 t/m 52 staan de antwoorden in de bron-PDF; voor de eerdere vragen is de sleutel gebaseerd op de Scrum Guide 2020.
+De quiz kiest bij elke nieuwe start een nieuwe willekeurige selectie van 80 vragen uit de volledige database.
