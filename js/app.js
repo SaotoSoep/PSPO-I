@@ -101,6 +101,10 @@ function hasQuestionCorrectAnswer(question, selection) {
   return selected.every((value, index) => value === correct[index]);
 }
 
+function isMultipleAnswerQuestion(question) {
+  return Array.isArray(question.answer) && question.answer.length > 1;
+}
+
 function getCorrectCount() {
   return getCurrentExamQuestions().reduce((count, question) => {
     const selection = getQuestionSelection(question.id);
@@ -135,7 +139,7 @@ function getFeedback(question) {
   }
 
   const correctText = formatAnswerText(question, question.answer);
-  return question.chooseAll
+  return isMultipleAnswerQuestion(question)
     ? `De juiste keuzes zijn ${correctText}.`
     : `De juiste keuze is ${correctText}.`;
 }
@@ -213,16 +217,17 @@ function renderQuestion() {
   }
 
   const selection = getQuestionSelection(question.id);
-  const inputType = question.chooseAll ? 'checkbox' : 'radio';
+  const multipleAnswer = isMultipleAnswerQuestion(question);
+  const inputType = multipleAnswer ? 'checkbox' : 'radio';
 
   els.quizTitle.textContent = `Vraag ${state.currentIndex + 1}`;
-  els.questionMode.textContent = question.chooseAll ? 'Meerdere antwoorden' : 'Een antwoord';
+  els.questionMode.textContent = multipleAnswer ? 'Meerdere antwoorden' : 'Een antwoord';
   els.questionCounter.textContent = `${state.currentIndex + 1} van ${EXAM_QUESTION_COUNT}`;
 
   els.questionHost.innerHTML = `
     <article class="question-card">
       <h3>${escapeHtml(question.prompt)}</h3>
-      <p class="question-help">${question.chooseAll ? 'Kies alle opties die kloppen.' : 'Kies het beste antwoord.'}</p>
+      <p class="question-help">${multipleAnswer ? 'Kies alle opties die kloppen.' : 'Kies het beste antwoord.'}</p>
       <div class="options">
         ${question.options.map((option) => {
           const checked = selection.includes(option.id) ? 'checked' : '';
@@ -430,7 +435,7 @@ function attachEvents() {
       return;
     }
 
-    if (question.chooseAll) {
+    if (isMultipleAnswerQuestion(question)) {
       const selection = Array.from(
         els.questionHost.querySelectorAll('input:checked'),
         (checked) => checked.value,

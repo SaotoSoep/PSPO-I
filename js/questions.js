@@ -1547,7 +1547,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 1,
     "prompt": "A stakeholder approaches the Developers during a Sprint and asks for a small feature change to a Product Backlog Item currently being implemented. What should the Developers do?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -1567,8 +1567,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Developers may adapt their plan during the Sprint as long as the Sprint Goal is not endangered. The Sprint Backlog is owned by the Developers."
@@ -1578,7 +1576,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 2,
     "prompt": "During Sprint Planning, who decides how many Product Backlog Items can be selected for the Sprint?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -1598,8 +1596,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "C"
     ],
     "feedback": "Developers determine how much work they can realistically complete during the Sprint. They select items in collaboration with the Product Owner."
@@ -1609,7 +1605,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 3,
     "prompt": "During a Sprint Review, stakeholders suggest several new ideas. What should happen to these suggestions?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -1629,8 +1625,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "The Sprint Review is used to inspect the Increment and adapt the Product Backlog. Feedback from stakeholders often leads to new or updated backlog items."
@@ -1640,7 +1634,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 4,
     "prompt": "Developers discover technical debt that could slow future development. What should they do?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -1660,8 +1654,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Technical improvements such as refactoring or addressing technical debt should be transparent and added to the Product Backlog so the Product Owner can prioritize them."
@@ -1671,7 +1663,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 5,
     "prompt": "What is the main purpose of the Sprint Goal?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -1691,8 +1683,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "The Sprint Goal provides focus and guidance for the Scrum Team. It defines the objective that the Sprint Backlog supports."
@@ -1702,7 +1692,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 6,
     "prompt": "A stakeholder insists on adding work to the current Sprint. What is correct according to Scrum?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -1722,8 +1712,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Only Developers can change the Sprint Backlog. However, the Product Owner and Developers may renegotiate scope if needed to maintain the Sprint Goal."
@@ -1733,7 +1721,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 7,
     "prompt": "Halfway through the Sprint, Developers realize a Product Backlog Item is much larger than expected. What should happen?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -1753,8 +1741,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Scrum allows adaptation during a Sprint. Developers collaborate with the Product Owner to adjust the plan while maintaining focus on the Sprint Goal."
@@ -1764,7 +1750,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 8,
     "prompt": "Who is responsible for maximizing the value of the product resulting from the work of the Scrum Team?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -1784,8 +1770,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "C"
     ],
     "feedback": "The Product Owner is accountable for maximizing product value and managing the Product Backlog."
@@ -1795,7 +1779,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 9,
     "prompt": "Who owns the Sprint Backlog?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -1815,8 +1799,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "C"
     ],
     "feedback": "The Sprint Backlog is owned and managed by the Developers. They decide how the work will be done."
@@ -1826,7 +1808,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 10,
     "prompt": "When can a Sprint be cancelled?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -1846,8 +1828,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Only the Product Owner can cancel a Sprint, and this happens when the Sprint Goal becomes obsolete."
@@ -1857,7 +1837,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 11,
     "prompt": "A stakeholder approaches the Developers during a Sprint and asks for a small feature change to a Product Backlog Item currently being implemented. What should the Developers do?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -1877,8 +1857,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Developers may adapt their plan during the Sprint as long as the Sprint Goal is not endangered. The Sprint Backlog is owned by the Developers."
@@ -1888,7 +1866,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 12,
     "prompt": "During Sprint Planning, who decides how many Product Backlog Items can be selected for the Sprint?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -1908,8 +1886,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "C"
     ],
     "feedback": "Developers determine how much work they can realistically complete during the Sprint. They select items in collaboration with the Product Owner."
@@ -1919,7 +1895,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 13,
     "prompt": "During a Sprint Review, stakeholders suggest several new ideas. What should happen to these suggestions?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -1939,8 +1915,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "The Sprint Review is used to inspect the Increment and adapt the Product Backlog. Feedback from stakeholders often leads to new or updated backlog items."
@@ -1950,7 +1924,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 14,
     "prompt": "Developers discover technical debt that could slow future development. What should they do?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -1970,8 +1944,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Technical improvements such as refactoring or addressing technical debt should be transparent and added to the Product Backlog so the Product Owner can prioritize them."
@@ -1981,7 +1953,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 15,
     "prompt": "What is the main purpose of the Sprint Goal?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -2001,8 +1973,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "The Sprint Goal provides focus and guidance for the Scrum Team. It defines the objective that the Sprint Backlog supports."
@@ -2012,7 +1982,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 16,
     "prompt": "A stakeholder insists on adding work to the current Sprint. What is correct according to Scrum?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -2032,8 +2002,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Only Developers can change the Sprint Backlog. However, the Product Owner and Developers may renegotiate scope if needed to maintain the Sprint Goal."
@@ -2043,7 +2011,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 17,
     "prompt": "Halfway through the Sprint, Developers realize a Product Backlog Item is much larger than expected. What should happen?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -2063,8 +2031,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Scrum allows adaptation during a Sprint. Developers collaborate with the Product Owner to adjust the plan while maintaining focus on the Sprint Goal."
@@ -2074,7 +2040,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 18,
     "prompt": "Who is responsible for maximizing the value of the product resulting from the work of the Scrum Team?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -2094,8 +2060,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "C"
     ],
     "feedback": "The Product Owner is accountable for maximizing product value and managing the Product Backlog."
@@ -2105,7 +2069,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 19,
     "prompt": "Who owns the Sprint Backlog?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -2125,8 +2089,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "C"
     ],
     "feedback": "The Sprint Backlog is owned and managed by the Developers. They decide how the work will be done."
@@ -2136,7 +2098,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 20,
     "prompt": "When can a Sprint be cancelled?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -2156,8 +2118,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Only the Product Owner can cancel a Sprint, and this happens when the Sprint Goal becomes obsolete."
@@ -2167,7 +2127,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 21,
     "prompt": "A stakeholder approaches the Developers during a Sprint and asks for a small feature change to a Product Backlog Item currently being implemented. What should the Developers do?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -2187,8 +2147,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Developers may adapt their plan during the Sprint as long as the Sprint Goal is not endangered. The Sprint Backlog is owned by the Developers."
@@ -2198,7 +2156,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 22,
     "prompt": "During Sprint Planning, who decides how many Product Backlog Items can be selected for the Sprint?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -2218,8 +2176,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "C"
     ],
     "feedback": "Developers determine how much work they can realistically complete during the Sprint. They select items in collaboration with the Product Owner."
@@ -2229,7 +2185,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 23,
     "prompt": "During a Sprint Review, stakeholders suggest several new ideas. What should happen to these suggestions?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -2249,8 +2205,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "The Sprint Review is used to inspect the Increment and adapt the Product Backlog. Feedback from stakeholders often leads to new or updated backlog items."
@@ -2260,7 +2214,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 24,
     "prompt": "Developers discover technical debt that could slow future development. What should they do?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -2280,8 +2234,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Technical improvements such as refactoring or addressing technical debt should be transparent and added to the Product Backlog so the Product Owner can prioritize them."
@@ -2291,7 +2243,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 25,
     "prompt": "What is the main purpose of the Sprint Goal?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -2311,8 +2263,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "The Sprint Goal provides focus and guidance for the Scrum Team. It defines the objective that the Sprint Backlog supports."
@@ -2322,7 +2272,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 26,
     "prompt": "A stakeholder insists on adding work to the current Sprint. What is correct according to Scrum?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -2342,8 +2292,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Only Developers can change the Sprint Backlog. However, the Product Owner and Developers may renegotiate scope if needed to maintain the Sprint Goal."
@@ -2353,7 +2301,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 27,
     "prompt": "Halfway through the Sprint, Developers realize a Product Backlog Item is much larger than expected. What should happen?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -2373,8 +2321,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Scrum allows adaptation during a Sprint. Developers collaborate with the Product Owner to adjust the plan while maintaining focus on the Sprint Goal."
@@ -2384,7 +2330,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 28,
     "prompt": "Who is responsible for maximizing the value of the product resulting from the work of the Scrum Team?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -2404,8 +2350,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "C"
     ],
     "feedback": "The Product Owner is accountable for maximizing product value and managing the Product Backlog."
@@ -2415,7 +2359,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 29,
     "prompt": "Who owns the Sprint Backlog?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -2435,8 +2379,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "C"
     ],
     "feedback": "The Sprint Backlog is owned and managed by the Developers. They decide how the work will be done."
@@ -2446,7 +2388,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 30,
     "prompt": "When can a Sprint be cancelled?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -2466,8 +2408,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Only the Product Owner can cancel a Sprint, and this happens when the Sprint Goal becomes obsolete."
@@ -2477,7 +2417,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 31,
     "prompt": "A stakeholder approaches the Developers during a Sprint and asks for a small feature change to a Product Backlog Item currently being implemented. What should the Developers do?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -2497,8 +2437,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Developers may adapt their plan during the Sprint as long as the Sprint Goal is not endangered. The Sprint Backlog is owned by the Developers."
@@ -2508,7 +2446,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 32,
     "prompt": "During Sprint Planning, who decides how many Product Backlog Items can be selected for the Sprint?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -2528,8 +2466,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "C"
     ],
     "feedback": "Developers determine how much work they can realistically complete during the Sprint. They select items in collaboration with the Product Owner."
@@ -2539,7 +2475,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 33,
     "prompt": "During a Sprint Review, stakeholders suggest several new ideas. What should happen to these suggestions?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -2559,8 +2495,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "The Sprint Review is used to inspect the Increment and adapt the Product Backlog. Feedback from stakeholders often leads to new or updated backlog items."
@@ -2570,7 +2504,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 34,
     "prompt": "Developers discover technical debt that could slow future development. What should they do?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -2590,8 +2524,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Technical improvements such as refactoring or addressing technical debt should be transparent and added to the Product Backlog so the Product Owner can prioritize them."
@@ -2601,7 +2533,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 35,
     "prompt": "What is the main purpose of the Sprint Goal?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -2621,8 +2553,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "The Sprint Goal provides focus and guidance for the Scrum Team. It defines the objective that the Sprint Backlog supports."
@@ -2632,7 +2562,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 36,
     "prompt": "A stakeholder insists on adding work to the current Sprint. What is correct according to Scrum?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -2652,8 +2582,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Only Developers can change the Sprint Backlog. However, the Product Owner and Developers may renegotiate scope if needed to maintain the Sprint Goal."
@@ -2663,7 +2591,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 37,
     "prompt": "Halfway through the Sprint, Developers realize a Product Backlog Item is much larger than expected. What should happen?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -2683,8 +2611,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Scrum allows adaptation during a Sprint. Developers collaborate with the Product Owner to adjust the plan while maintaining focus on the Sprint Goal."
@@ -2694,7 +2620,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 38,
     "prompt": "Who is responsible for maximizing the value of the product resulting from the work of the Scrum Team?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -2714,8 +2640,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "C"
     ],
     "feedback": "The Product Owner is accountable for maximizing product value and managing the Product Backlog."
@@ -2725,7 +2649,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 39,
     "prompt": "Who owns the Sprint Backlog?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -2745,8 +2669,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "C"
     ],
     "feedback": "The Sprint Backlog is owned and managed by the Developers. They decide how the work will be done."
@@ -2756,7 +2678,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 40,
     "prompt": "When can a Sprint be cancelled?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -2776,8 +2698,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Only the Product Owner can cancel a Sprint, and this happens when the Sprint Goal becomes obsolete."
@@ -2787,7 +2707,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 41,
     "prompt": "A stakeholder approaches the Developers during a Sprint and asks for a small feature change to a Product Backlog Item currently being implemented. What should the Developers do?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -2807,8 +2727,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Developers may adapt their plan during the Sprint as long as the Sprint Goal is not endangered. The Sprint Backlog is owned by the Developers."
@@ -2818,7 +2736,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 42,
     "prompt": "During Sprint Planning, who decides how many Product Backlog Items can be selected for the Sprint?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -2838,8 +2756,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "C"
     ],
     "feedback": "Developers determine how much work they can realistically complete during the Sprint. They select items in collaboration with the Product Owner."
@@ -2849,7 +2765,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 43,
     "prompt": "During a Sprint Review, stakeholders suggest several new ideas. What should happen to these suggestions?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -2869,8 +2785,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "The Sprint Review is used to inspect the Increment and adapt the Product Backlog. Feedback from stakeholders often leads to new or updated backlog items."
@@ -2880,7 +2794,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 44,
     "prompt": "Developers discover technical debt that could slow future development. What should they do?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -2900,8 +2814,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Technical improvements such as refactoring or addressing technical debt should be transparent and added to the Product Backlog so the Product Owner can prioritize them."
@@ -2911,7 +2823,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 45,
     "prompt": "What is the main purpose of the Sprint Goal?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -2931,8 +2843,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "The Sprint Goal provides focus and guidance for the Scrum Team. It defines the objective that the Sprint Backlog supports."
@@ -2942,7 +2852,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 46,
     "prompt": "A stakeholder insists on adding work to the current Sprint. What is correct according to Scrum?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -2962,8 +2872,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Only Developers can change the Sprint Backlog. However, the Product Owner and Developers may renegotiate scope if needed to maintain the Sprint Goal."
@@ -2973,7 +2881,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 47,
     "prompt": "Halfway through the Sprint, Developers realize a Product Backlog Item is much larger than expected. What should happen?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -2993,8 +2901,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Scrum allows adaptation during a Sprint. Developers collaborate with the Product Owner to adjust the plan while maintaining focus on the Sprint Goal."
@@ -3004,7 +2910,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 48,
     "prompt": "Who is responsible for maximizing the value of the product resulting from the work of the Scrum Team?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -3024,8 +2930,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "C"
     ],
     "feedback": "The Product Owner is accountable for maximizing product value and managing the Product Backlog."
@@ -3035,7 +2939,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 49,
     "prompt": "Who owns the Sprint Backlog?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -3055,8 +2959,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "C"
     ],
     "feedback": "The Sprint Backlog is owned and managed by the Developers. They decide how the work will be done."
@@ -3066,7 +2968,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 50,
     "prompt": "When can a Sprint be cancelled?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -3086,8 +2988,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Only the Product Owner can cancel a Sprint, and this happens when the Sprint Goal becomes obsolete."
@@ -3097,7 +2997,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 51,
     "prompt": "A stakeholder approaches the Developers during a Sprint and asks for a small feature change to a Product Backlog Item currently being implemented. What should the Developers do?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -3117,8 +3017,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Developers may adapt their plan during the Sprint as long as the Sprint Goal is not endangered. The Sprint Backlog is owned by the Developers."
@@ -3128,7 +3026,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 52,
     "prompt": "During Sprint Planning, who decides how many Product Backlog Items can be selected for the Sprint?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -3148,8 +3046,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "C"
     ],
     "feedback": "Developers determine how much work they can realistically complete during the Sprint. They select items in collaboration with the Product Owner."
@@ -3159,7 +3055,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 53,
     "prompt": "During a Sprint Review, stakeholders suggest several new ideas. What should happen to these suggestions?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -3179,8 +3075,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "The Sprint Review is used to inspect the Increment and adapt the Product Backlog. Feedback from stakeholders often leads to new or updated backlog items."
@@ -3190,7 +3084,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 54,
     "prompt": "Developers discover technical debt that could slow future development. What should they do?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -3210,8 +3104,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Technical improvements such as refactoring or addressing technical debt should be transparent and added to the Product Backlog so the Product Owner can prioritize them."
@@ -3221,7 +3113,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 55,
     "prompt": "What is the main purpose of the Sprint Goal?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -3241,8 +3133,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "The Sprint Goal provides focus and guidance for the Scrum Team. It defines the objective that the Sprint Backlog supports."
@@ -3252,7 +3142,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 56,
     "prompt": "A stakeholder insists on adding work to the current Sprint. What is correct according to Scrum?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -3272,8 +3162,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Only Developers can change the Sprint Backlog. However, the Product Owner and Developers may renegotiate scope if needed to maintain the Sprint Goal."
@@ -3283,7 +3171,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 57,
     "prompt": "Halfway through the Sprint, Developers realize a Product Backlog Item is much larger than expected. What should happen?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -3303,8 +3191,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Scrum allows adaptation during a Sprint. Developers collaborate with the Product Owner to adjust the plan while maintaining focus on the Sprint Goal."
@@ -3314,7 +3200,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 58,
     "prompt": "Who is responsible for maximizing the value of the product resulting from the work of the Scrum Team?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -3334,8 +3220,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "C"
     ],
     "feedback": "The Product Owner is accountable for maximizing product value and managing the Product Backlog."
@@ -3345,7 +3229,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 59,
     "prompt": "Who owns the Sprint Backlog?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -3365,8 +3249,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "C"
     ],
     "feedback": "The Sprint Backlog is owned and managed by the Developers. They decide how the work will be done."
@@ -3376,7 +3258,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 60,
     "prompt": "When can a Sprint be cancelled?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -3396,8 +3278,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Only the Product Owner can cancel a Sprint, and this happens when the Sprint Goal becomes obsolete."
@@ -3407,7 +3287,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 61,
     "prompt": "A stakeholder approaches the Developers during a Sprint and asks for a small feature change to a Product Backlog Item currently being implemented. What should the Developers do?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -3427,8 +3307,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Developers may adapt their plan during the Sprint as long as the Sprint Goal is not endangered. The Sprint Backlog is owned by the Developers."
@@ -3438,7 +3316,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 62,
     "prompt": "During Sprint Planning, who decides how many Product Backlog Items can be selected for the Sprint?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -3458,8 +3336,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "C"
     ],
     "feedback": "Developers determine how much work they can realistically complete during the Sprint. They select items in collaboration with the Product Owner."
@@ -3469,7 +3345,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 63,
     "prompt": "During a Sprint Review, stakeholders suggest several new ideas. What should happen to these suggestions?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -3489,8 +3365,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "The Sprint Review is used to inspect the Increment and adapt the Product Backlog. Feedback from stakeholders often leads to new or updated backlog items."
@@ -3500,7 +3374,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 64,
     "prompt": "Developers discover technical debt that could slow future development. What should they do?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -3520,8 +3394,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Technical improvements such as refactoring or addressing technical debt should be transparent and added to the Product Backlog so the Product Owner can prioritize them."
@@ -3531,7 +3403,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 65,
     "prompt": "What is the main purpose of the Sprint Goal?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -3551,8 +3423,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "The Sprint Goal provides focus and guidance for the Scrum Team. It defines the objective that the Sprint Backlog supports."
@@ -3562,7 +3432,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 66,
     "prompt": "A stakeholder insists on adding work to the current Sprint. What is correct according to Scrum?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -3582,8 +3452,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Only Developers can change the Sprint Backlog. However, the Product Owner and Developers may renegotiate scope if needed to maintain the Sprint Goal."
@@ -3593,7 +3461,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 67,
     "prompt": "Halfway through the Sprint, Developers realize a Product Backlog Item is much larger than expected. What should happen?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -3613,8 +3481,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Scrum allows adaptation during a Sprint. Developers collaborate with the Product Owner to adjust the plan while maintaining focus on the Sprint Goal."
@@ -3624,7 +3490,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 68,
     "prompt": "Who is responsible for maximizing the value of the product resulting from the work of the Scrum Team?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -3644,8 +3510,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "C"
     ],
     "feedback": "The Product Owner is accountable for maximizing product value and managing the Product Backlog."
@@ -3655,7 +3519,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 69,
     "prompt": "Who owns the Sprint Backlog?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -3675,8 +3539,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "C"
     ],
     "feedback": "The Sprint Backlog is owned and managed by the Developers. They decide how the work will be done."
@@ -3686,7 +3548,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 70,
     "prompt": "When can a Sprint be cancelled?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -3706,8 +3568,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Only the Product Owner can cancel a Sprint, and this happens when the Sprint Goal becomes obsolete."
@@ -3717,7 +3577,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 71,
     "prompt": "A stakeholder approaches the Developers during a Sprint and asks for a small feature change to a Product Backlog Item currently being implemented. What should the Developers do?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -3737,8 +3597,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Developers may adapt their plan during the Sprint as long as the Sprint Goal is not endangered. The Sprint Backlog is owned by the Developers."
@@ -3748,7 +3606,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 72,
     "prompt": "During Sprint Planning, who decides how many Product Backlog Items can be selected for the Sprint?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -3768,8 +3626,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "C"
     ],
     "feedback": "Developers determine how much work they can realistically complete during the Sprint. They select items in collaboration with the Product Owner."
@@ -3779,7 +3635,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 73,
     "prompt": "During a Sprint Review, stakeholders suggest several new ideas. What should happen to these suggestions?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -3799,8 +3655,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "The Sprint Review is used to inspect the Increment and adapt the Product Backlog. Feedback from stakeholders often leads to new or updated backlog items."
@@ -3810,7 +3664,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 74,
     "prompt": "Developers discover technical debt that could slow future development. What should they do?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -3830,8 +3684,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Technical improvements such as refactoring or addressing technical debt should be transparent and added to the Product Backlog so the Product Owner can prioritize them."
@@ -3841,7 +3693,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 75,
     "prompt": "What is the main purpose of the Sprint Goal?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -3861,8 +3713,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "The Sprint Goal provides focus and guidance for the Scrum Team. It defines the objective that the Sprint Backlog supports."
@@ -3872,7 +3722,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 76,
     "prompt": "A stakeholder insists on adding work to the current Sprint. What is correct according to Scrum?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -3892,8 +3742,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Only Developers can change the Sprint Backlog. However, the Product Owner and Developers may renegotiate scope if needed to maintain the Sprint Goal."
@@ -3903,7 +3751,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 77,
     "prompt": "Halfway through the Sprint, Developers realize a Product Backlog Item is much larger than expected. What should happen?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -3923,8 +3771,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Scrum allows adaptation during a Sprint. Developers collaborate with the Product Owner to adjust the plan while maintaining focus on the Sprint Goal."
@@ -3934,7 +3780,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 78,
     "prompt": "Who is responsible for maximizing the value of the product resulting from the work of the Scrum Team?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -3954,8 +3800,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "C"
     ],
     "feedback": "The Product Owner is accountable for maximizing product value and managing the Product Backlog."
@@ -3965,7 +3809,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 79,
     "prompt": "Who owns the Sprint Backlog?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -3985,8 +3829,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "C"
     ],
     "feedback": "The Sprint Backlog is owned and managed by the Developers. They decide how the work will be done."
@@ -3996,7 +3838,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 80,
     "prompt": "When can a Sprint be cancelled?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -4016,8 +3858,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Only the Product Owner can cancel a Sprint, and this happens when the Sprint Goal becomes obsolete."
@@ -4027,7 +3867,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 81,
     "prompt": "A stakeholder approaches the Developers during a Sprint and asks for a small feature change to a Product Backlog Item currently being implemented. What should the Developers do?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -4047,8 +3887,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Developers may adapt their plan during the Sprint as long as the Sprint Goal is not endangered. The Sprint Backlog is owned by the Developers."
@@ -4058,7 +3896,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 82,
     "prompt": "During Sprint Planning, who decides how many Product Backlog Items can be selected for the Sprint?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -4078,8 +3916,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "C"
     ],
     "feedback": "Developers determine how much work they can realistically complete during the Sprint. They select items in collaboration with the Product Owner."
@@ -4089,7 +3925,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 83,
     "prompt": "During a Sprint Review, stakeholders suggest several new ideas. What should happen to these suggestions?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -4109,8 +3945,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "The Sprint Review is used to inspect the Increment and adapt the Product Backlog. Feedback from stakeholders often leads to new or updated backlog items."
@@ -4120,7 +3954,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 84,
     "prompt": "Developers discover technical debt that could slow future development. What should they do?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -4140,8 +3974,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Technical improvements such as refactoring or addressing technical debt should be transparent and added to the Product Backlog so the Product Owner can prioritize them."
@@ -4151,7 +3983,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 85,
     "prompt": "What is the main purpose of the Sprint Goal?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -4171,8 +4003,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "The Sprint Goal provides focus and guidance for the Scrum Team. It defines the objective that the Sprint Backlog supports."
@@ -4182,7 +4012,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 86,
     "prompt": "A stakeholder insists on adding work to the current Sprint. What is correct according to Scrum?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -4202,8 +4032,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Only Developers can change the Sprint Backlog. However, the Product Owner and Developers may renegotiate scope if needed to maintain the Sprint Goal."
@@ -4213,7 +4041,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 87,
     "prompt": "Halfway through the Sprint, Developers realize a Product Backlog Item is much larger than expected. What should happen?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -4233,8 +4061,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Scrum allows adaptation during a Sprint. Developers collaborate with the Product Owner to adjust the plan while maintaining focus on the Sprint Goal."
@@ -4244,7 +4070,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 88,
     "prompt": "Who is responsible for maximizing the value of the product resulting from the work of the Scrum Team?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -4264,8 +4090,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "C"
     ],
     "feedback": "The Product Owner is accountable for maximizing product value and managing the Product Backlog."
@@ -4275,7 +4099,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 89,
     "prompt": "Who owns the Sprint Backlog?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -4295,8 +4119,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "C"
     ],
     "feedback": "The Sprint Backlog is owned and managed by the Developers. They decide how the work will be done."
@@ -4306,7 +4128,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 90,
     "prompt": "When can a Sprint be cancelled?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -4326,8 +4148,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Only the Product Owner can cancel a Sprint, and this happens when the Sprint Goal becomes obsolete."
@@ -4337,7 +4157,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 91,
     "prompt": "A stakeholder approaches the Developers during a Sprint and asks for a small feature change to a Product Backlog Item currently being implemented. What should the Developers do?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -4357,8 +4177,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Developers may adapt their plan during the Sprint as long as the Sprint Goal is not endangered. The Sprint Backlog is owned by the Developers."
@@ -4368,7 +4186,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 92,
     "prompt": "During Sprint Planning, who decides how many Product Backlog Items can be selected for the Sprint?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -4388,8 +4206,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "C"
     ],
     "feedback": "Developers determine how much work they can realistically complete during the Sprint. They select items in collaboration with the Product Owner."
@@ -4399,7 +4215,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 93,
     "prompt": "During a Sprint Review, stakeholders suggest several new ideas. What should happen to these suggestions?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -4419,8 +4235,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "The Sprint Review is used to inspect the Increment and adapt the Product Backlog. Feedback from stakeholders often leads to new or updated backlog items."
@@ -4430,7 +4244,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 94,
     "prompt": "Developers discover technical debt that could slow future development. What should they do?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -4450,8 +4264,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Technical improvements such as refactoring or addressing technical debt should be transparent and added to the Product Backlog so the Product Owner can prioritize them."
@@ -4461,7 +4273,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 95,
     "prompt": "What is the main purpose of the Sprint Goal?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -4481,8 +4293,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "The Sprint Goal provides focus and guidance for the Scrum Team. It defines the objective that the Sprint Backlog supports."
@@ -4492,7 +4302,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 96,
     "prompt": "A stakeholder insists on adding work to the current Sprint. What is correct according to Scrum?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -4512,8 +4322,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Only Developers can change the Sprint Backlog. However, the Product Owner and Developers may renegotiate scope if needed to maintain the Sprint Goal."
@@ -4523,7 +4331,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 97,
     "prompt": "Halfway through the Sprint, Developers realize a Product Backlog Item is much larger than expected. What should happen?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -4543,8 +4351,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Scrum allows adaptation during a Sprint. Developers collaborate with the Product Owner to adjust the plan while maintaining focus on the Sprint Goal."
@@ -4554,7 +4360,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 98,
     "prompt": "Who is responsible for maximizing the value of the product resulting from the work of the Scrum Team?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -4574,8 +4380,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "C"
     ],
     "feedback": "The Product Owner is accountable for maximizing product value and managing the Product Backlog."
@@ -4585,7 +4389,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 99,
     "prompt": "Who owns the Sprint Backlog?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -4605,8 +4409,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "C"
     ],
     "feedback": "The Sprint Backlog is owned and managed by the Developers. They decide how the work will be done."
@@ -4616,7 +4418,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 100,
     "prompt": "When can a Sprint be cancelled?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -4636,8 +4438,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Only the Product Owner can cancel a Sprint, and this happens when the Sprint Goal becomes obsolete."
@@ -4647,7 +4447,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 101,
     "prompt": "A stakeholder approaches the Developers during a Sprint and asks for a small feature change to a Product Backlog Item currently being implemented. What should the Developers do?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -4667,8 +4467,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Developers may adapt their plan during the Sprint as long as the Sprint Goal is not endangered. The Sprint Backlog is owned by the Developers."
@@ -4678,7 +4476,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 102,
     "prompt": "During Sprint Planning, who decides how many Product Backlog Items can be selected for the Sprint?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -4698,8 +4496,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "C"
     ],
     "feedback": "Developers determine how much work they can realistically complete during the Sprint. They select items in collaboration with the Product Owner."
@@ -4709,7 +4505,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 103,
     "prompt": "During a Sprint Review, stakeholders suggest several new ideas. What should happen to these suggestions?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -4729,8 +4525,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "The Sprint Review is used to inspect the Increment and adapt the Product Backlog. Feedback from stakeholders often leads to new or updated backlog items."
@@ -4740,7 +4534,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 104,
     "prompt": "Developers discover technical debt that could slow future development. What should they do?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -4760,8 +4554,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Technical improvements such as refactoring or addressing technical debt should be transparent and added to the Product Backlog so the Product Owner can prioritize them."
@@ -4771,7 +4563,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 105,
     "prompt": "What is the main purpose of the Sprint Goal?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -4791,8 +4583,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "The Sprint Goal provides focus and guidance for the Scrum Team. It defines the objective that the Sprint Backlog supports."
@@ -4802,7 +4592,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 106,
     "prompt": "A stakeholder insists on adding work to the current Sprint. What is correct according to Scrum?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -4822,8 +4612,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Only Developers can change the Sprint Backlog. However, the Product Owner and Developers may renegotiate scope if needed to maintain the Sprint Goal."
@@ -4833,7 +4621,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 107,
     "prompt": "Halfway through the Sprint, Developers realize a Product Backlog Item is much larger than expected. What should happen?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -4853,8 +4641,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Scrum allows adaptation during a Sprint. Developers collaborate with the Product Owner to adjust the plan while maintaining focus on the Sprint Goal."
@@ -4864,7 +4650,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 108,
     "prompt": "Who is responsible for maximizing the value of the product resulting from the work of the Scrum Team?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -4884,8 +4670,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "C"
     ],
     "feedback": "The Product Owner is accountable for maximizing product value and managing the Product Backlog."
@@ -4895,7 +4679,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 109,
     "prompt": "Who owns the Sprint Backlog?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -4915,8 +4699,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "C"
     ],
     "feedback": "The Sprint Backlog is owned and managed by the Developers. They decide how the work will be done."
@@ -4926,7 +4708,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 110,
     "prompt": "When can a Sprint be cancelled?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -4946,8 +4728,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Only the Product Owner can cancel a Sprint, and this happens when the Sprint Goal becomes obsolete."
@@ -4957,7 +4737,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 111,
     "prompt": "A stakeholder approaches the Developers during a Sprint and asks for a small feature change to a Product Backlog Item currently being implemented. What should the Developers do?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -4977,8 +4757,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Developers may adapt their plan during the Sprint as long as the Sprint Goal is not endangered. The Sprint Backlog is owned by the Developers."
@@ -4988,7 +4766,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 112,
     "prompt": "During Sprint Planning, who decides how many Product Backlog Items can be selected for the Sprint?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -5008,8 +4786,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "C"
     ],
     "feedback": "Developers determine how much work they can realistically complete during the Sprint. They select items in collaboration with the Product Owner."
@@ -5019,7 +4795,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 113,
     "prompt": "During a Sprint Review, stakeholders suggest several new ideas. What should happen to these suggestions?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -5039,8 +4815,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "The Sprint Review is used to inspect the Increment and adapt the Product Backlog. Feedback from stakeholders often leads to new or updated backlog items."
@@ -5050,7 +4824,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 114,
     "prompt": "Developers discover technical debt that could slow future development. What should they do?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -5070,8 +4844,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Technical improvements such as refactoring or addressing technical debt should be transparent and added to the Product Backlog so the Product Owner can prioritize them."
@@ -5081,7 +4853,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 115,
     "prompt": "What is the main purpose of the Sprint Goal?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -5101,8 +4873,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "The Sprint Goal provides focus and guidance for the Scrum Team. It defines the objective that the Sprint Backlog supports."
@@ -5112,7 +4882,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 116,
     "prompt": "A stakeholder insists on adding work to the current Sprint. What is correct according to Scrum?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -5132,8 +4902,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Only Developers can change the Sprint Backlog. However, the Product Owner and Developers may renegotiate scope if needed to maintain the Sprint Goal."
@@ -5143,7 +4911,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 117,
     "prompt": "Halfway through the Sprint, Developers realize a Product Backlog Item is much larger than expected. What should happen?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -5163,8 +4931,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Scrum allows adaptation during a Sprint. Developers collaborate with the Product Owner to adjust the plan while maintaining focus on the Sprint Goal."
@@ -5174,7 +4940,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 118,
     "prompt": "Who is responsible for maximizing the value of the product resulting from the work of the Scrum Team?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -5194,8 +4960,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "C"
     ],
     "feedback": "The Product Owner is accountable for maximizing product value and managing the Product Backlog."
@@ -5205,7 +4969,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 119,
     "prompt": "Who owns the Sprint Backlog?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -5225,8 +4989,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "C"
     ],
     "feedback": "The Sprint Backlog is owned and managed by the Developers. They decide how the work will be done."
@@ -5236,7 +4998,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 120,
     "prompt": "When can a Sprint be cancelled?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -5256,8 +5018,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Only the Product Owner can cancel a Sprint, and this happens when the Sprint Goal becomes obsolete."
@@ -5267,7 +5027,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 121,
     "prompt": "A stakeholder approaches the Developers during a Sprint and asks for a small feature change to a Product Backlog Item currently being implemented. What should the Developers do?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -5287,8 +5047,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Developers may adapt their plan during the Sprint as long as the Sprint Goal is not endangered. The Sprint Backlog is owned by the Developers."
@@ -5298,7 +5056,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 122,
     "prompt": "During Sprint Planning, who decides how many Product Backlog Items can be selected for the Sprint?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -5318,8 +5076,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "C"
     ],
     "feedback": "Developers determine how much work they can realistically complete during the Sprint. They select items in collaboration with the Product Owner."
@@ -5329,7 +5085,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 123,
     "prompt": "During a Sprint Review, stakeholders suggest several new ideas. What should happen to these suggestions?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -5349,8 +5105,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "The Sprint Review is used to inspect the Increment and adapt the Product Backlog. Feedback from stakeholders often leads to new or updated backlog items."
@@ -5360,7 +5114,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 124,
     "prompt": "Developers discover technical debt that could slow future development. What should they do?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -5380,8 +5134,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Technical improvements such as refactoring or addressing technical debt should be transparent and added to the Product Backlog so the Product Owner can prioritize them."
@@ -5391,7 +5143,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 125,
     "prompt": "What is the main purpose of the Sprint Goal?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -5411,8 +5163,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "The Sprint Goal provides focus and guidance for the Scrum Team. It defines the objective that the Sprint Backlog supports."
@@ -5422,7 +5172,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 126,
     "prompt": "A stakeholder insists on adding work to the current Sprint. What is correct according to Scrum?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -5442,8 +5192,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Only Developers can change the Sprint Backlog. However, the Product Owner and Developers may renegotiate scope if needed to maintain the Sprint Goal."
@@ -5453,7 +5201,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 127,
     "prompt": "Halfway through the Sprint, Developers realize a Product Backlog Item is much larger than expected. What should happen?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -5473,8 +5221,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Scrum allows adaptation during a Sprint. Developers collaborate with the Product Owner to adjust the plan while maintaining focus on the Sprint Goal."
@@ -5484,7 +5230,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 128,
     "prompt": "Who is responsible for maximizing the value of the product resulting from the work of the Scrum Team?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -5504,8 +5250,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "C"
     ],
     "feedback": "The Product Owner is accountable for maximizing product value and managing the Product Backlog."
@@ -5515,7 +5259,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 129,
     "prompt": "Who owns the Sprint Backlog?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -5535,8 +5279,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "C"
     ],
     "feedback": "The Sprint Backlog is owned and managed by the Developers. They decide how the work will be done."
@@ -5546,7 +5288,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 130,
     "prompt": "When can a Sprint be cancelled?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -5566,8 +5308,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Only the Product Owner can cancel a Sprint, and this happens when the Sprint Goal becomes obsolete."
@@ -5577,7 +5317,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 131,
     "prompt": "A stakeholder approaches the Developers during a Sprint and asks for a small feature change to a Product Backlog Item currently being implemented. What should the Developers do?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -5597,8 +5337,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Developers may adapt their plan during the Sprint as long as the Sprint Goal is not endangered. The Sprint Backlog is owned by the Developers."
@@ -5608,7 +5346,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 132,
     "prompt": "During Sprint Planning, who decides how many Product Backlog Items can be selected for the Sprint?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -5628,8 +5366,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "C"
     ],
     "feedback": "Developers determine how much work they can realistically complete during the Sprint. They select items in collaboration with the Product Owner."
@@ -5639,7 +5375,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 133,
     "prompt": "During a Sprint Review, stakeholders suggest several new ideas. What should happen to these suggestions?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -5659,8 +5395,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "The Sprint Review is used to inspect the Increment and adapt the Product Backlog. Feedback from stakeholders often leads to new or updated backlog items."
@@ -5670,7 +5404,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 134,
     "prompt": "Developers discover technical debt that could slow future development. What should they do?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -5690,8 +5424,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Technical improvements such as refactoring or addressing technical debt should be transparent and added to the Product Backlog so the Product Owner can prioritize them."
@@ -5701,7 +5433,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 135,
     "prompt": "What is the main purpose of the Sprint Goal?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -5721,8 +5453,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "The Sprint Goal provides focus and guidance for the Scrum Team. It defines the objective that the Sprint Backlog supports."
@@ -5732,7 +5462,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 136,
     "prompt": "A stakeholder insists on adding work to the current Sprint. What is correct according to Scrum?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -5752,8 +5482,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Only Developers can change the Sprint Backlog. However, the Product Owner and Developers may renegotiate scope if needed to maintain the Sprint Goal."
@@ -5763,7 +5491,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 137,
     "prompt": "Halfway through the Sprint, Developers realize a Product Backlog Item is much larger than expected. What should happen?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -5783,8 +5511,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Scrum allows adaptation during a Sprint. Developers collaborate with the Product Owner to adjust the plan while maintaining focus on the Sprint Goal."
@@ -5794,7 +5520,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 138,
     "prompt": "Who is responsible for maximizing the value of the product resulting from the work of the Scrum Team?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -5814,8 +5540,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "C"
     ],
     "feedback": "The Product Owner is accountable for maximizing product value and managing the Product Backlog."
@@ -5825,7 +5549,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 139,
     "prompt": "Who owns the Sprint Backlog?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -5845,8 +5569,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "C"
     ],
     "feedback": "The Sprint Backlog is owned and managed by the Developers. They decide how the work will be done."
@@ -5856,7 +5578,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 140,
     "prompt": "When can a Sprint be cancelled?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -5876,8 +5598,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Only the Product Owner can cancel a Sprint, and this happens when the Sprint Goal becomes obsolete."
@@ -5887,7 +5607,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 141,
     "prompt": "A stakeholder approaches the Developers during a Sprint and asks for a small feature change to a Product Backlog Item currently being implemented. What should the Developers do?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -5907,8 +5627,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Developers may adapt their plan during the Sprint as long as the Sprint Goal is not endangered. The Sprint Backlog is owned by the Developers."
@@ -5918,7 +5636,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 142,
     "prompt": "During Sprint Planning, who decides how many Product Backlog Items can be selected for the Sprint?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -5938,8 +5656,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "C"
     ],
     "feedback": "Developers determine how much work they can realistically complete during the Sprint. They select items in collaboration with the Product Owner."
@@ -5949,7 +5665,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 143,
     "prompt": "During a Sprint Review, stakeholders suggest several new ideas. What should happen to these suggestions?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -5969,8 +5685,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "The Sprint Review is used to inspect the Increment and adapt the Product Backlog. Feedback from stakeholders often leads to new or updated backlog items."
@@ -5980,7 +5694,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 144,
     "prompt": "Developers discover technical debt that could slow future development. What should they do?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -6000,8 +5714,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Technical improvements such as refactoring or addressing technical debt should be transparent and added to the Product Backlog so the Product Owner can prioritize them."
@@ -6011,7 +5723,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 145,
     "prompt": "What is the main purpose of the Sprint Goal?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -6031,8 +5743,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "The Sprint Goal provides focus and guidance for the Scrum Team. It defines the objective that the Sprint Backlog supports."
@@ -6042,7 +5752,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 146,
     "prompt": "A stakeholder insists on adding work to the current Sprint. What is correct according to Scrum?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -6062,8 +5772,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Only Developers can change the Sprint Backlog. However, the Product Owner and Developers may renegotiate scope if needed to maintain the Sprint Goal."
@@ -6073,7 +5781,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 147,
     "prompt": "Halfway through the Sprint, Developers realize a Product Backlog Item is much larger than expected. What should happen?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -6093,8 +5801,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Scrum allows adaptation during a Sprint. Developers collaborate with the Product Owner to adjust the plan while maintaining focus on the Sprint Goal."
@@ -6104,7 +5810,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 148,
     "prompt": "Who is responsible for maximizing the value of the product resulting from the work of the Scrum Team?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -6124,8 +5830,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "C"
     ],
     "feedback": "The Product Owner is accountable for maximizing product value and managing the Product Backlog."
@@ -6135,7 +5839,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 149,
     "prompt": "Who owns the Sprint Backlog?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -6155,8 +5859,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "C"
     ],
     "feedback": "The Sprint Backlog is owned and managed by the Developers. They decide how the work will be done."
@@ -6166,7 +5868,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 150,
     "prompt": "When can a Sprint be cancelled?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -6186,8 +5888,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Only the Product Owner can cancel a Sprint, and this happens when the Sprint Goal becomes obsolete."
@@ -6197,7 +5897,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 151,
     "prompt": "A stakeholder approaches the Developers during a Sprint and asks for a small feature change to a Product Backlog Item currently being implemented. What should the Developers do?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -6217,8 +5917,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Developers may adapt their plan during the Sprint as long as the Sprint Goal is not endangered. The Sprint Backlog is owned by the Developers."
@@ -6228,7 +5926,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 152,
     "prompt": "During Sprint Planning, who decides how many Product Backlog Items can be selected for the Sprint?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -6248,8 +5946,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "C"
     ],
     "feedback": "Developers determine how much work they can realistically complete during the Sprint. They select items in collaboration with the Product Owner."
@@ -6259,7 +5955,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 153,
     "prompt": "During a Sprint Review, stakeholders suggest several new ideas. What should happen to these suggestions?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -6279,8 +5975,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "The Sprint Review is used to inspect the Increment and adapt the Product Backlog. Feedback from stakeholders often leads to new or updated backlog items."
@@ -6290,7 +5984,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 154,
     "prompt": "Developers discover technical debt that could slow future development. What should they do?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -6310,8 +6004,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Technical improvements such as refactoring or addressing technical debt should be transparent and added to the Product Backlog so the Product Owner can prioritize them."
@@ -6321,7 +6013,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 155,
     "prompt": "What is the main purpose of the Sprint Goal?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -6341,8 +6033,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "The Sprint Goal provides focus and guidance for the Scrum Team. It defines the objective that the Sprint Backlog supports."
@@ -6352,7 +6042,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 156,
     "prompt": "A stakeholder insists on adding work to the current Sprint. What is correct according to Scrum?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -6372,8 +6062,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Only Developers can change the Sprint Backlog. However, the Product Owner and Developers may renegotiate scope if needed to maintain the Sprint Goal."
@@ -6383,7 +6071,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 157,
     "prompt": "Halfway through the Sprint, Developers realize a Product Backlog Item is much larger than expected. What should happen?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -6403,8 +6091,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Scrum allows adaptation during a Sprint. Developers collaborate with the Product Owner to adjust the plan while maintaining focus on the Sprint Goal."
@@ -6414,7 +6100,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 158,
     "prompt": "Who is responsible for maximizing the value of the product resulting from the work of the Scrum Team?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -6434,8 +6120,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "C"
     ],
     "feedback": "The Product Owner is accountable for maximizing product value and managing the Product Backlog."
@@ -6445,7 +6129,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 159,
     "prompt": "Who owns the Sprint Backlog?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -6465,8 +6149,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "C"
     ],
     "feedback": "The Sprint Backlog is owned and managed by the Developers. They decide how the work will be done."
@@ -6476,7 +6158,7 @@ window.PSPO_QUESTIONS = [
     "source": "docx-scenario-bank",
     "sourceNumber": 160,
     "prompt": "When can a Sprint be cancelled?",
-    "chooseAll": true,
+    "chooseAll": false,
     "options": [
       {
         "id": "A",
@@ -6496,8 +6178,6 @@ window.PSPO_QUESTIONS = [
       }
     ],
     "answer": [
-      "C",
-      "A",
       "B"
     ],
     "feedback": "Only the Product Owner can cancel a Sprint, and this happens when the Sprint Goal becomes obsolete."
