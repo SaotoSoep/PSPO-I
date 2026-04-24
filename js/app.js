@@ -3,7 +3,32 @@ const EXAM_QUESTION_COUNT = 80;
 const EXAM_DURATION_SECONDS = 60 * 60;
 const PASS_PERCENT = 85;
 
-const questionById = new Map(QUESTION_BANK.map((question) => [question.id, question]));
+function normalizeSignatureText(value) {
+  return String(value).trim().replace(/\s+/g, ' ').toLowerCase();
+}
+
+function questionSignature(question) {
+  const optionSignature = question.options
+    .map((option) => `${option.id}:${normalizeSignatureText(option.text)}`)
+    .join('|');
+  return `${normalizeSignatureText(question.prompt)}::${optionSignature}`;
+}
+
+function getUniqueQuestions(questions) {
+  const seen = new Set();
+  return questions.filter((question) => {
+    const signature = questionSignature(question);
+    if (seen.has(signature)) {
+      return false;
+    }
+    seen.add(signature);
+    return true;
+  });
+}
+
+const UNIQUE_QUESTION_BANK = getUniqueQuestions(QUESTION_BANK);
+const AVAILABLE_EXAM_QUESTION_COUNT = Math.min(EXAM_QUESTION_COUNT, UNIQUE_QUESTION_BANK.length);
+const questionById = new Map(UNIQUE_QUESTION_BANK.map((question) => [question.id, question]));
 
 const state = {
   currentIndex: 0,
@@ -71,6 +96,10 @@ function getCurrentExamQuestions() {
   return state.questionIds
     .map((id) => questionById.get(id))
     .filter(Boolean);
+}
+
+function getActiveExamQuestionCount() {
+  return state.questionIds.length || AVAILABLE_EXAM_QUESTION_COUNT;
 }
 
 function getQuestionAt(index) {
@@ -158,7 +187,7 @@ function formatAnswerText(question, ids) {
 }
 
 function createNewExam() {
-  const questionIds = shuffle(QUESTION_BANK.map((question) => question.id)).slice(0, EXAM_QUESTION_COUNT);
+  const questionIds = shuffle(UNIQUE_QUESTION_BANK.map((question) => question.id)).slice(0, AVAILABLE_EXAM_QUESTION_COUNT);
   state.currentIndex = 0;
   state.selected = {};
   state.submitted = false;
@@ -212,7 +241,7 @@ function renderQuestion() {
     els.quizTitle.textContent = state.questionIds.length ? 'Vraag niet gevonden' : 'Nog niet gestart';
     els.questionHost.innerHTML = state.questionIds.length
       ? '<p>De vraag kon niet worden geladen.</p>'
-      : '<div class="start-placeholder"><h3>Klik op "Start examen" om te beginnen.</h3><p>Je krijgt 80 willekeurige vragen en 60 minuten om het examen af te ronden.</p></div>';
+      : `<div class="start-placeholder"><h3>Klik op "Start examen" om te beginnen.</h3><p>Je krijgt ${AVAILABLE_EXAM_QUESTION_COUNT} unieke vragen en 60 minuten om het examen af te ronden.</p>${AVAILABLE_EXAM_QUESTION_COUNT < EXAM_QUESTION_COUNT ? `<p class="start-note">Let op: de huidige database bevat ${UNIQUE_QUESTION_BANK.length} unieke vragen, dus dit examen gebruikt alle unieke vragen zonder herhaling.</p>` : ''}</div>`;
     return;
   }
 
@@ -222,7 +251,7 @@ function renderQuestion() {
 
   els.quizTitle.textContent = `Vraag ${state.currentIndex + 1}`;
   els.questionMode.textContent = multipleAnswer ? 'Meerdere antwoorden' : 'Een antwoord';
-  els.questionCounter.textContent = `${state.currentIndex + 1} van ${EXAM_QUESTION_COUNT}`;
+  els.questionCounter.textContent = `${state.currentIndex + 1} van ${getActiveExamQuestionCount()}`;
 
   els.questionHost.innerHTML = `
     <article class="question-card">
@@ -281,14 +310,14 @@ function renderStats() {
   const progress = questions.length ? (answeredCount / questions.length) * 100 : 0;
   const remainingSeconds = getRemainingSeconds();
 
-  els.answeredCount.textContent = `${answeredCount}/${EXAM_QUESTION_COUNT}`;
+  els.answeredCount.textContent = `${answeredCount}/${getActiveExamQuestionCount()}`;
   els.progressFill.style.width = `${progress}%`;
   els.timerLabel.textContent = formatTime(remainingSeconds);
 
   if (state.questionIds.length === 0) {
     els.scoreCount.textContent = '-';
   } else if (state.submitted) {
-    els.scoreCount.textContent = `${correctCount}/${EXAM_QUESTION_COUNT}`;
+    els.scoreCount.textContent = `${correctCount}/${getActiveExamQuestionCount()}`;
   } else {
     els.scoreCount.textContent = '-';
   }
@@ -297,7 +326,7 @@ function renderStats() {
 function renderButtons() {
   const hasExam = state.questionIds.length > 0;
   els.prevBtn.disabled = !hasExam || state.currentIndex === 0;
-  els.nextBtn.disabled = !hasExam || state.currentIndex >= EXAM_QUESTION_COUNT - 1;
+  els.nextBtn.disabled = !hasExam || state.currentIndex >= getActiveExamQuestionCount() - 1;
   els.submitBtn.disabled = !hasExam;
   els.submitBtn.textContent = state.submitted ? 'Ingeleverd' : 'Inleveren';
   els.startBtn.textContent = hasExam && !state.submitted ? 'Ga verder' : 'Start examen';
@@ -311,7 +340,7 @@ function renderReview() {
   const incorrectCount = answeredCount - correctCount;
   const unansweredCount = questions.length - answeredCount;
   const percentage = questions.length ? Math.round((correctCount / questions.length) * 100) : 0;
-  const passingCount = Math.ceil(EXAM_QUESTION_COUNT * PASS_PERCENT / 100);
+  const passingCount = Math.ceil(questions.length * PASS_PERCENT / 100);
   const passed = state.submitted && correctCount >= passingCount;
 
   els.results.classList.toggle('hidden', !state.submitted);
@@ -339,11 +368,11 @@ function renderReview() {
         <span>nog onbeantwoord</span>
       </div>
     </div>
-    <p>
-      Je eindscore is <strong>${percentage}%</strong>. Voor slagen heb je minstens <strong>${PASS_PERCENT}%</strong>
-      nodig, dus minimaal <strong>${passingCount}/${EXAM_QUESTION_COUNT}</strong> juiste antwoorden.
-      ${passed ? 'Je bent geslaagd.' : 'Je bent niet geslaagd.'}
-    </p>
+      <p>
+        Je eindscore is <strong>${percentage}%</strong>. Voor slagen heb je minstens <strong>${PASS_PERCENT}%</strong>
+        nodig, dus minimaal <strong>${passingCount}/${questions.length}</strong> juiste antwoorden.
+        ${passed ? 'Je bent geslaagd.' : 'Je bent niet geslaagd.'}
+      </p>
   `;
 
   els.reviewList.innerHTML = questions.map((question, index) => {
@@ -385,7 +414,8 @@ function renderStartPlaceholder() {
   els.questionHost.innerHTML = `
     <div class="start-placeholder">
       <h3>Klik op "Start examen" om te beginnen.</h3>
-      <p>Je krijgt 80 willekeurige vragen en 60 minuten om het examen af te ronden.</p>
+      <p>Je krijgt ${AVAILABLE_EXAM_QUESTION_COUNT} unieke vragen en 60 minuten om het examen af te ronden.</p>
+      ${AVAILABLE_EXAM_QUESTION_COUNT < EXAM_QUESTION_COUNT ? `<p class="start-note">Let op: de huidige database bevat ${UNIQUE_QUESTION_BANK.length} unieke vragen, dus dit examen gebruikt alle unieke vragen zonder herhaling.</p>` : ''}
     </div>
   `;
 }
@@ -394,9 +424,9 @@ function render() {
   if (!state.questionIds.length) {
     els.quizTitle.textContent = 'Nog niet gestart';
     els.questionMode.textContent = 'Examen';
-    els.questionCounter.textContent = `0 van ${EXAM_QUESTION_COUNT}`;
+    els.questionCounter.textContent = `0 van ${AVAILABLE_EXAM_QUESTION_COUNT}`;
     els.progressFill.style.width = '0%';
-    els.answeredCount.textContent = `0/${EXAM_QUESTION_COUNT}`;
+    els.answeredCount.textContent = `0/${AVAILABLE_EXAM_QUESTION_COUNT}`;
     els.scoreCount.textContent = '-';
     els.timerLabel.textContent = formatTime(EXAM_DURATION_SECONDS);
     els.results.classList.add('hidden');
@@ -417,7 +447,7 @@ function render() {
 }
 
 function moveQuestion(delta) {
-  state.currentIndex = Math.max(0, Math.min(EXAM_QUESTION_COUNT - 1, state.currentIndex + delta));
+  state.currentIndex = Math.max(0, Math.min(getActiveExamQuestionCount() - 1, state.currentIndex + delta));
   persistState();
   render();
   els.questionHost.scrollIntoView({ behavior: 'smooth', block: 'start' });

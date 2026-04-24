@@ -616,6 +616,14 @@ a {
   line-height: 1.65;
 }
 
+.start-note {
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 184, 77, 0.12);
+  border: 1px solid rgba(255, 184, 77, 0.28);
+  color: var(--text);
+}
+
 .review-item .badge {
   display: inline-flex;
   align-items: center;
