@@ -1,4 +1,7 @@
-const QUESTION_BANK = window.PSPO_QUESTIONS || [];
+const QUESTION_BANK = [
+  ...(window.PSPO_QUESTIONS || []),
+  ...(window.PSPO_EXTRA_QUESTIONS || []),
+];
 const EXAM_QUESTION_COUNT = 80;
 const EXAM_DURATION_SECONDS = 60 * 60;
 const PASS_PERCENT = 85;
