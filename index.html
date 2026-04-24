@@ -1,216 +1,158 @@
 <!doctype html>
-<html lang="en">
+<html lang="nl">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FitMatch - Sizing Intelligence Layer</title>
-  <meta name="description" content="FitMatch helps translate and compare sizes across brands with a lightweight sizing intelligence layer." />
-  <link rel="stylesheet" href="./css/styles.css?v=20260419-5" />
-  <script src="./js/data.js?v=20260419-5" defer></script>
-  <script src="./js/normalization.js?v=20260419-5" defer></script>
-  <script src="./js/translator.js?v=20260419-5" defer></script>
-  <script src="./js/app.js?v=20260419-5" defer></script>
+  <title>PSPO 1 Oefenquiz</title>
+  <meta
+    name="description"
+    content="Oefen de Scrum Product Owner sample exam vragen in een overzichtelijke quiz met score, navigatie en correcte antwoorden per vraag."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Source+Sans+3:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="./css/styles.css" />
+  <script src="./js/questions.js" defer></script>
+  <script src="./js/app.js" defer></script>
 </head>
 <body>
+  <div class="page-glow page-glow-a"></div>
+  <div class="page-glow page-glow-b"></div>
+
   <main class="app-shell">
     <section class="hero card">
       <div class="hero-copy">
-        <div class="eyebrow">FitMatch widget</div>
-        <h1>Translate your size from one brand to another.</h1>
+        <p class="eyebrow">PSPO 1 oefenquiz</p>
+        <h1>Oefen de sample exam vragen zonder eindeloos door een PDF te scrollen.</h1>
         <p class="lead">
-          This is the product surface we want to test: a lightweight sizing widget that turns a
-          known size at one brand into a recommendation for another brand. The surrounding
-          intelligence layer sits behind it.
+          Beantwoord de vragen stap voor stap, kijk meteen je voortgang terug en zie aan het
+          einde direct welke antwoorden correct waren. Alles blijft lokaal opgeslagen, zodat je
+          gewoon verder kunt waar je was gebleven.
         </p>
 
         <div class="hero-actions">
-          <a href="#widget" class="primary-link">Try the widget</a>
-          <a href="#system" class="secondary-link">See the sizing layer</a>
-          <a href="./mockup.html?v=20260419-5" class="secondary-link">Open product mockup</a>
+          <button id="startBtn" class="primary-action" type="button">Start of ga verder</button>
+          <a class="secondary-action" href="./Scrum%20Product%20Owner%20Sample%20Exam%20Questions.pdf" download>
+            Open bron-PDF
+          </a>
+          <button id="resetBtnTop" class="ghost-action" type="button">Reset quiz</button>
+        </div>
+
+        <div class="hero-notes">
+          <span>52 vragen</span>
+          <span>Directe score</span>
+          <span>Correcte antwoorden per vraag</span>
         </div>
       </div>
 
       <aside class="hero-panel">
-        <h2>Core use case</h2>
-        <ul>
-          <li>User knows their size in one brand</li>
-          <li>Widget recommends the closest size in another brand</li>
-          <li>Retailer sees a clear brand-to-brand translation flow</li>
-          <li>Feedback can improve the dataset later</li>
-        </ul>
-        <p class="note">
-          Body-based recommendation can come later, but it should sit on top of this layer, not replace it.
-        </p>
+        <div class="panel-card accent">
+          <p class="panel-label">Waarom dit fijner werkt</p>
+          <ul>
+            <li>Je hoeft niet onderaan de PDF naar de antwoorden te zoeken.</li>
+            <li>Elke vraag is duidelijk gescheiden en navigeerbaar.</li>
+            <li>Na afloop zie je in 1 overzicht je score en alle juiste antwoorden.</li>
+          </ul>
+        </div>
+
+        <div class="panel-card">
+          <p class="panel-label">Bronnen</p>
+          <p>
+            De vraagtekst komt uit de sample PDF. De antwoorden volgen de Scrum Guide 2020 en
+            de antwoordsectie in de PDF voor de latere vragen.
+          </p>
+        </div>
       </aside>
     </section>
 
-    <section id="widget" class="card section-card widget-card">
-      <div class="section-heading">
+    <section class="stats-grid" aria-label="Quiz overzicht">
+      <article class="stat-card card">
+        <span class="stat-label">Voortgang</span>
+        <strong id="answeredCount">0/52</strong>
+        <p>Beantwoordde vragen worden automatisch opgeslagen.</p>
+      </article>
+      <article class="stat-card card">
+        <span class="stat-label">Score</span>
+        <strong id="scoreCount">-</strong>
+        <p>Verschijnt zodra je de quiz hebt ingeleverd.</p>
+      </article>
+      <article class="stat-card card">
+        <span class="stat-label">Status</span>
+        <strong id="statusLabel">Nog niet gestart</strong>
+        <p id="statusDetail">Je staat klaar om te beginnen.</p>
+      </article>
+    </section>
+
+    <section class="quiz-layout">
+      <article class="card quiz-card">
+        <div class="quiz-header">
+          <div>
+            <p class="eyebrow">Vraagweergave</p>
+            <h2 id="quizTitle">Vraag 1</h2>
+          </div>
+          <div class="quiz-meta">
+            <span id="questionMode" class="pill">Een antwoord</span>
+            <span id="questionCounter" class="pill pill-soft">0 van 52</span>
+          </div>
+        </div>
+
+        <div class="progress-track" aria-hidden="true">
+          <div id="progressFill" class="progress-fill"></div>
+        </div>
+
+        <div id="questionHost" class="question-host"></div>
+
+        <div class="quiz-actions">
+          <button id="prevBtn" type="button">Vorige</button>
+          <button id="nextBtn" type="button">Volgende</button>
+          <button id="submitBtn" class="primary-action" type="button">Score zien</button>
+        </div>
+      </article>
+
+      <aside class="card side-card">
+        <div class="side-section">
+          <div class="side-header">
+            <div>
+              <p class="eyebrow">Navigator</p>
+              <h3>Snel naar een vraag</h3>
+            </div>
+            <button id="clearBtn" type="button" class="ghost-action small">Wis antwoorden</button>
+          </div>
+          <div id="navigator" class="navigator" aria-label="Vraag navigator"></div>
+        </div>
+
+        <div class="side-section info-box">
+          <h3>Tips</h3>
+          <ul>
+            <li>Meerdere antwoorden? Kies alleen de opties die de vraag echt vraagt.</li>
+            <li>Je kunt tussendoor schakelen tussen vragen zonder iets kwijt te raken.</li>
+            <li>Na het inleveren zie je per vraag jouw keuze en het correcte antwoord.</li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+
+    <section id="results" class="card results-card hidden" aria-live="polite">
+      <div class="results-header">
         <div>
-          <h2>Embed-ready widget</h2>
-          <p>This is the compact frontend we want to ship into a product page or retailer widget slot.</p>
+          <p class="eyebrow">Resultaat</p>
+          <h2>Je score en review</h2>
         </div>
-        <span class="badge">Primary surface</span>
+        <div id="scoreBadge" class="score-badge">-</div>
       </div>
 
-      <div class="widget-shell">
-        <div class="widget-shell-top">
-          <div>
-            <h3>FitMatch size translator</h3>
-            <p>Known size in one brand, recommendation in another brand. Minimal input, immediate value.</p>
-          </div>
-          <div class="widget-chip-row">
-            <span class="widget-chip">Brand to brand</span>
-            <span class="widget-chip">Fast flow</span>
-            <span class="widget-chip">Low friction</span>
-          </div>
-        </div>
+      <div id="resultsSummary" class="results-summary"></div>
+      <div id="reviewList" class="review-list"></div>
 
-        <div class="grid two-up widget-grid">
-          <article class="widget-form card">
-            <div class="widget-header">
-              <h3>Translate size</h3>
-              <p>Choose the brand and size you already know, then translate it to a target brand.</p>
-            </div>
-
-            <form id="compareForm" class="form-grid">
-              <label>
-                I wear this size at
-                <select id="sourceBrand"></select>
-              </label>
-
-              <label>
-                My usual size
-                <select id="sourceSize"></select>
-              </label>
-
-              <label>
-                I want to buy from
-                <select id="targetBrand"></select>
-              </label>
-
-              <label>
-                Product type
-                <select id="productType">
-                  <option value="tshirt">Women's T-shirt</option>
-                </select>
-              </label>
-
-              <button type="submit">Get recommendation</button>
-            </form>
-          </article>
-
-          <article class="widget-result card">
-            <h3>Recommendation</h3>
-            <div id="translationResult" class="result-box">
-              <h3>Translation result</h3>
-              <p>Select two brands to see how the same size translates.</p>
-            </div>
-            <div class="widget-summary">
-              <div>
-                <strong>Why this is useful</strong>
-                <p>It reduces guesswork, multi-size orders, and sizing frustration for shoppers.</p>
-              </div>
-              <div>
-                <strong>What we validate</strong>
-                <p>Whether a simple brand-to-brand recommendation is useful enough to keep using.</p>
-              </div>
-            </div>
-          </article>
-        </div>
+      <div class="results-actions">
+        <button id="restartBtn" class="primary-action" type="button">Opnieuw beginnen</button>
+        <a class="secondary-action" href="./Scrum%20Product%20Owner%20Sample%20Exam%20Questions.pdf" download>
+          PDF opnieuw openen
+        </a>
       </div>
-    </section>
-
-    <section class="grid two-up">
-      <article class="card section-card">
-        <h2>What the widget sits on top of</h2>
-        <p>
-          The widget is the frontend. Behind it is a lightweight sizing intelligence layer that
-          stores charts, normalizes them, and translates between brands.
-        </p>
-        <div class="bullet-list">
-          <div><strong>Dataset:</strong> public brand size charts and product attributes</div>
-          <div><strong>Logic:</strong> normalization and translation between brands</div>
-          <div><strong>Future:</strong> user feedback to refine fit profiles</div>
-        </div>
-      </article>
-
-      <article class="card section-card">
-        <h2>Why the business cares</h2>
-        <div class="architecture">
-          <div>
-            <span>For shoppers</span>
-            <p>Less guessing, fewer size-related surprises, and a faster path to checkout.</p>
-          </div>
-          <div>
-            <span>For retailers</span>
-            <p>Lower return pressure, fewer abandoned carts, and better conversion on sizing-sensitive products.</p>
-          </div>
-          <div>
-            <span>For FitMatch</span>
-            <p>A narrow, testable wedge: one clear output that can validate product demand.</p>
-          </div>
-        </div>
-      </article>
-    </section>
-
-    <section id="system" class="card section-card">
-      <div class="section-heading">
-        <div>
-          <h2>Sizing intelligence layer</h2>
-          <p>The widget uses a small dataset, but the underlying structure is designed to scale.</p>
-        </div>
-        <span class="badge">Normalized format</span>
-      </div>
-      <div id="datasetGrid" class="brand-grid"></div>
-    </section>
-
-    <section class="grid two-up">
-      <article class="card section-card">
-        <h2>Future feedback layer</h2>
-        <p>
-          We are not depending on feedback yet, but the structure is there so the product can
-          learn from fit outcomes later.
-        </p>
-        <div class="feedback-box">
-          <label>
-            Fit outcome
-            <select id="feedbackOutcome">
-              <option value="too_small">Too small</option>
-              <option value="good_fit" selected>Good fit</option>
-              <option value="too_large">Too large</option>
-            </select>
-          </label>
-          <label>
-            Notes
-            <textarea id="feedbackNotes" rows="5" placeholder="Optional context about the fit, fabric, or cut."></textarea>
-          </label>
-          <button type="button" id="saveFeedback">Save local feedback</button>
-        </div>
-        <div id="feedbackStatus" class="micro-status">No feedback saved yet.</div>
-      </article>
-
-      <article class="card section-card">
-        <h2>POC scope</h2>
-        <div class="architecture">
-          <div>
-            <span>Use case</span>
-            <p>Brand-to-brand size translation for known sizes.</p>
-          </div>
-          <div>
-            <span>Input</span>
-            <p>Minimal: source brand, source size, target brand, and product type.</p>
-          </div>
-          <div>
-            <span>Output</span>
-            <p>One simple recommendation that is easy to understand and test with users.</p>
-          </div>
-          <div>
-            <span>Validation</span>
-            <p>Whether people find brand-to-brand sizing genuinely useful in a shopping flow.</p>
-          </div>
-        </div>
-      </article>
     </section>
   </main>
 </body>

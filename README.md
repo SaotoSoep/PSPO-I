@@ -1,23 +1,31 @@
-# FitMatch MVP
+# PSPO 1 Oefenquiz
 
-This repo contains a small, static prototype for FitMatch's sizing intelligence direction.
+Een interactieve oefenwebsite voor de Scrum Product Owner sample exam vragen.
 
-## What it demonstrates
+## Wat je krijgt
 
-- a lightweight sizing dataset for women's T-shirts
-- brand fit comparison
-- size translation between brands
-- a placeholder feedback layer for future fit outcomes
+- Vraag voor vraag oefenen in plaats van eindeloos scrollen door de PDF
+- Directe score na het inleveren
+- Per vraag het correcte antwoord terugzien
+- Lokale opslag van je voortgang in de browser
 
-## Structure
+## Bestanden
 
-- `index.html` - landing page and UI shell
-- `css/styles.css` - visual system
-- `js/data.js` - sample sizing dataset
-- `js/normalization.js` - chart normalization helpers
-- `js/translator.js` - brand-to-brand translation logic
-- `js/app.js` - UI wiring
+- `index.html`
+- `css/styles.css`
+- `js/questions.js`
+- `js/app.js`
+- `Scrum Product Owner Sample Exam Questions.pdf`
 
-## Live site
+## Bronmateriaal
 
-GitHub Pages: https://saotosoep.github.io/fitmatch-mvp/
+- Scrum Product Owner sample exam PDF van Capgemini Academy
+- Scrum Guide 2020: https://scrumguides.org/scrum-guide.html
+
+## Lokaal draaien
+
+Open `index.html` in een browser of serveer de map via een eenvoudige static server.
+
+## Opmerking
+
+De quiz is gebouwd om snel te oefenen met de PDF-vragen. Voor vragen 39 t/m 52 staan de antwoorden in de bron-PDF; voor de eerdere vragen is de sleutel gebaseerd op de Scrum Guide 2020.
