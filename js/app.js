@@ -1,10 +1,12 @@
 const QUESTIONS = window.PSPO_QUESTIONS || [];
+const QUESTION_MAP = new Map(QUESTIONS.map((question) => [question.number, question]));
 const STORAGE_KEY = 'pspo-quiz-state-v1';
 
 const state = {
   currentIndex: 0,
   selected: {},
   submitted: false,
+  questionOrder: [],
 };
 
 const els = {
@@ -33,6 +35,29 @@ const els = {
 
 const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
 
+function shuffle(array) {
+  const copy = [...array];
+  for (let index = copy.length - 1; index > 0; index -= 1) {
+    const swapIndex = Math.floor(Math.random() * (index + 1));
+    [copy[index], copy[swapIndex]] = [copy[swapIndex], copy[index]];
+  }
+  return copy;
+}
+
+function createQuestionOrder() {
+  return shuffle(QUESTIONS.map((question) => question.number));
+}
+
+function getQuizQuestions() {
+  return state.questionOrder
+    .map((questionNumber) => QUESTION_MAP.get(questionNumber))
+    .filter(Boolean);
+}
+
+function getQuestionAt(index) {
+  return getQuizQuestions()[index];
+}
+
 function escapeHtml(value) {
   return String(value)
     .replaceAll('&', '&amp;')
@@ -43,7 +68,14 @@ function escapeHtml(value) {
 }
 
 function saveState() {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  localStorage.setItem(
+    STORAGE_KEY,
+    JSON.stringify({
+      currentIndex: state.currentIndex,
+      selected: state.selected,
+      questionOrder: state.questionOrder,
+    }),
+  );
 }
 
 function loadState() {
@@ -62,7 +94,11 @@ function loadState() {
       state.selected = parsed.selected;
     }
 
-    state.submitted = Boolean(parsed.submitted);
+    if (Array.isArray(parsed.questionOrder) && parsed.questionOrder.length === QUESTIONS.length) {
+      state.questionOrder = parsed.questionOrder
+        .map((value) => Number(value))
+        .filter((value) => Number.isFinite(value) && QUESTION_MAP.has(value));
+    }
   } catch {
     localStorage.removeItem(STORAGE_KEY);
   }
@@ -90,6 +126,20 @@ function isQuestionAnswered(questionNumber) {
   return getQuestionSelection(questionNumber).length > 0;
 }
 
+function getFeedback(question) {
+  if (typeof question.feedback === 'string' && question.feedback.trim()) {
+    return question.feedback.trim();
+  }
+
+  const correctText = formatAnswerText(question, question.answer);
+
+  if (question.chooseAll) {
+    return `De juiste keuzes zijn ${correctText}. Dat is de combinatie die het beste aansluit bij de Scrum Guide voor deze vraag.`;
+  }
+
+  return `De juiste keuze is ${correctText}. Dat is de Scrum-interpretatie die past bij deze vraag.`;
+}
+
 function hasQuestionCorrectAnswer(question, selection) {
   const selected = [...selection].sort();
   const correct = [...question.answer].map(String).sort();
@@ -101,14 +151,14 @@ function hasQuestionCorrectAnswer(question, selection) {
 }
 
 function getCorrectCount() {
-  return QUESTIONS.reduce((count, question) => {
+  return getQuizQuestions().reduce((count, question) => {
     const selection = getQuestionSelection(question.number);
     return count + (hasQuestionCorrectAnswer(question, selection) ? 1 : 0);
   }, 0);
 }
 
 function getAnsweredCount() {
-  return QUESTIONS.reduce((count, question) => count + (isQuestionAnswered(question.number) ? 1 : 0), 0);
+  return getQuizQuestions().reduce((count, question) => count + (isQuestionAnswered(question.number) ? 1 : 0), 0);
 }
 
 function formatAnswerText(question, ids) {
@@ -125,7 +175,7 @@ function formatAnswerText(question, ids) {
 }
 
 function renderQuestion() {
-  const question = QUESTIONS[state.currentIndex];
+  const question = getQuestionAt(state.currentIndex);
   if (!question) {
     els.questionHost.innerHTML = '';
     return;
@@ -135,9 +185,9 @@ function renderQuestion() {
   const inputType = question.chooseAll ? 'checkbox' : 'radio';
   const modeLabel = question.chooseAll ? 'Meerdere antwoorden' : 'Een antwoord';
 
-  els.quizTitle.textContent = `Vraag ${question.number}`;
+  els.quizTitle.textContent = `Vraag ${state.currentIndex + 1}`;
   els.questionMode.textContent = modeLabel;
-  els.questionCounter.textContent = `${question.number} van ${QUESTIONS.length}`;
+  els.questionCounter.textContent = `${state.currentIndex + 1} van ${QUESTIONS.length}`;
   els.questionHost.innerHTML = `
     <article class="question-card">
       <h3>${escapeHtml(question.prompt)}</h3>
@@ -169,9 +219,10 @@ function renderQuestion() {
 }
 
 function renderNavigator() {
+  const quizQuestions = getQuizQuestions();
   const selectedIndex = state.currentIndex;
 
-  els.navigator.innerHTML = QUESTIONS.map((question, index) => {
+  els.navigator.innerHTML = quizQuestions.map((question, index) => {
     const selection = getQuestionSelection(question.number);
     const answered = selection.length > 0;
     const correct = state.submitted && hasQuestionCorrectAnswer(question, selection);
@@ -188,22 +239,23 @@ function renderNavigator() {
 
     return `
       <button type="button" class="${classes}" data-index="${index}" aria-label="Ga naar vraag ${question.number}">
-        ${question.number}
+        ${index + 1}
       </button>
     `;
   }).join('');
 }
 
 function renderStats() {
+  const quizQuestions = getQuizQuestions();
   const answeredCount = getAnsweredCount();
   const correctCount = getCorrectCount();
-  const progress = QUESTIONS.length ? (answeredCount / QUESTIONS.length) * 100 : 0;
+  const progress = quizQuestions.length ? (answeredCount / quizQuestions.length) * 100 : 0;
 
-  els.answeredCount.textContent = `${answeredCount}/${QUESTIONS.length}`;
+  els.answeredCount.textContent = `${answeredCount}/${quizQuestions.length}`;
   els.progressFill.style.width = `${progress}%`;
 
   if (state.submitted) {
-    els.scoreCount.textContent = `${correctCount}/${QUESTIONS.length}`;
+    els.scoreCount.textContent = `${correctCount}/${quizQuestions.length}`;
     els.statusLabel.textContent = 'Ingeleverd';
     els.statusDetail.textContent = `${correctCount} volledig juiste antwoorden.`;
   } else {
@@ -217,18 +269,20 @@ function renderStats() {
 }
 
 function renderButtons() {
+  const quizQuestions = getQuizQuestions();
   els.prevBtn.disabled = state.currentIndex === 0;
-  els.nextBtn.disabled = state.currentIndex >= QUESTIONS.length - 1;
-  els.submitBtn.disabled = QUESTIONS.length === 0;
+  els.nextBtn.disabled = state.currentIndex >= quizQuestions.length - 1;
+  els.submitBtn.disabled = quizQuestions.length === 0;
   els.submitBtn.textContent = state.submitted ? 'Score opnieuw berekenen' : 'Score zien';
 }
 
 function renderReview() {
+  const quizQuestions = getQuizQuestions();
   const answeredCount = getAnsweredCount();
   const correctCount = getCorrectCount();
   const incorrectCount = answeredCount - correctCount;
-  const unansweredCount = QUESTIONS.length - answeredCount;
-  const percentage = QUESTIONS.length ? Math.round((correctCount / QUESTIONS.length) * 100) : 0;
+  const unansweredCount = quizQuestions.length - answeredCount;
+  const percentage = quizQuestions.length ? Math.round((correctCount / quizQuestions.length) * 100) : 0;
 
   els.results.classList.toggle('hidden', !state.submitted);
 
@@ -239,7 +293,7 @@ function renderReview() {
     return;
   }
 
-  els.scoreBadge.textContent = `${correctCount}/${QUESTIONS.length} juist`;
+  els.scoreBadge.textContent = `${correctCount}/${quizQuestions.length} juist`;
   els.resultsSummary.innerHTML = `
     <div class="results-metrics">
       <div class="metric">
@@ -261,7 +315,7 @@ function renderReview() {
     </p>
   `;
 
-  els.reviewList.innerHTML = QUESTIONS.map((question) => {
+  els.reviewList.innerHTML = quizQuestions.map((question, index) => {
     const selection = getQuestionSelection(question.number);
     const correct = hasQuestionCorrectAnswer(question, selection);
     const answered = selection.length > 0;
@@ -275,7 +329,7 @@ function renderReview() {
     return `
       <article class="review-item ${correct ? 'correct' : 'wrong'}">
         <div class="review-top">
-          <p class="review-title">Vraag ${question.number}</p>
+          <p class="review-title">Vraag ${index + 1}</p>
           <span class="badge ${statusClass}">${statusLabel}</span>
         </div>
         <p class="review-question">${escapeHtml(question.prompt)}</p>
@@ -285,6 +339,10 @@ function renderReview() {
           </div>
           <div class="answer-line">
             <strong>Correct antwoord:</strong> ${escapeHtml(formatAnswerText(question, question.answer))}
+          </div>
+          <div class="feedback-box">
+            <strong>Feedback:</strong>
+            <p>${escapeHtml(getFeedback(question))}</p>
           </div>
         </div>
       </article>
@@ -301,7 +359,7 @@ function render() {
 }
 
 function goToQuestion(index) {
-  state.currentIndex = clamp(index, 0, QUESTIONS.length - 1);
+  state.currentIndex = clamp(index, 0, getQuizQuestions().length - 1);
   persistAndRender();
   els.questionHost.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
@@ -311,7 +369,7 @@ function moveQuestion(delta) {
 }
 
 function collectCurrentSelection() {
-  const question = QUESTIONS[state.currentIndex];
+  const question = getQuestionAt(state.currentIndex);
   if (!question) {
     return;
   }
@@ -332,6 +390,7 @@ function resetQuiz() {
   state.currentIndex = 0;
   state.selected = {};
   state.submitted = false;
+  state.questionOrder = createQuestionOrder();
   persistAndRender();
   els.questionHost.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
@@ -347,21 +406,21 @@ function attachEvents() {
       return;
     }
 
-    const question = QUESTIONS[state.currentIndex];
-    if (!question) {
+    const quizQuestion = getQuestionAt(state.currentIndex);
+    if (!quizQuestion) {
       return;
     }
 
-    if (question.chooseAll) {
+    if (quizQuestion.chooseAll) {
       const selection = Array.from(
         els.questionHost.querySelectorAll('input:checked'),
         (checked) => checked.value,
       );
-      setQuestionSelection(question.number, selection);
+      setQuestionSelection(quizQuestion.number, selection);
       return;
     }
 
-    setQuestionSelection(question.number, [input.value]);
+    setQuestionSelection(quizQuestion.number, [input.value]);
   });
 
   els.navigator.addEventListener('click', (event) => {
@@ -403,16 +462,18 @@ function init() {
   }
 
   loadState();
-  if (state.currentIndex >= QUESTIONS.length) {
+  if (!state.questionOrder.length) {
+    state.questionOrder = createQuestionOrder();
+  }
+
+  if (state.currentIndex >= state.questionOrder.length) {
     state.currentIndex = 0;
   }
 
+  state.submitted = false;
+
   attachEvents();
   render();
-
-  if (state.submitted) {
-    els.results.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
 }
 
 init();

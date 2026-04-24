@@ -23,7 +23,8 @@ window.PSPO_QUESTIONS = [
     ],
     "answer": [
       "1"
-    ]
+    ],
+    "feedback": "De juiste keuze is 1. As much as is needed to meet the Definition of Done. Dit is de Scrum-regel die hier van toepassing is."
   },
   {
     "number": 2,
@@ -68,7 +69,8 @@ window.PSPO_QUESTIONS = [
       "3",
       "4",
       "8"
-    ]
+    ],
+    "feedback": "De juiste keuzes zijn 2. Product Owner; 3. Product Backlog; 4. Product Goal; 8. Definition of Done. Samen beschrijven ze de Scrum-regel die hier wordt getoetst."
   },
   {
     "number": 3,
@@ -94,7 +96,8 @@ window.PSPO_QUESTIONS = [
     ],
     "answer": [
       "3"
-    ]
+    ],
+    "feedback": "De juiste keuze is 3. Scrum does not prescribe how the Product Backlog should be ordered. Dit is de Scrum-regel die hier van toepassing is."
   },
   {
     "number": 4,
@@ -120,7 +123,8 @@ window.PSPO_QUESTIONS = [
     ],
     "answer": [
       "4"
-    ]
+    ],
+    "feedback": "De juiste keuze is 4. When the timebox has expired. Dit is de Scrum-regel die hier van toepassing is."
   },
   {
     "number": 5,
@@ -146,7 +150,8 @@ window.PSPO_QUESTIONS = [
     ],
     "answer": [
       "4"
-    ]
+    ],
+    "feedback": "De juiste keuze is 4. It reduces complexity and overhead. Dit is de Scrum-regel die hier van toepassing is."
   },
   {
     "number": 6,
@@ -172,7 +177,8 @@ window.PSPO_QUESTIONS = [
     ],
     "answer": [
       "2"
-    ]
+    ],
+    "feedback": "De juiste keuze is 2. Product Owner. Dit is de Scrum-regel die hier van toepassing is."
   },
   {
     "number": 7,
@@ -198,7 +204,8 @@ window.PSPO_QUESTIONS = [
     ],
     "answer": [
       "2"
-    ]
+    ],
+    "feedback": "De juiste keuze is 2. The Sprint Backlog and its content are fully formulated in the Sprint Planning and do not change during the Sprint. Dit is de Scrum-regel die hier van toepassing is."
   },
   {
     "number": 8,
@@ -224,7 +231,8 @@ window.PSPO_QUESTIONS = [
     ],
     "answer": [
       "4"
-    ]
+    ],
+    "feedback": "De juiste keuze is 4. An Increment may be delivered to stakeholders prior to the end of the Sprint. Dit is de Scrum-regel die hier van toepassing is."
   },
   {
     "number": 9,
@@ -250,7 +258,8 @@ window.PSPO_QUESTIONS = [
     ],
     "answer": [
       "4"
-    ]
+    ],
+    "feedback": "De juiste keuze is 4. Ordering the items in the Product Backlog. Dit is de Scrum-regel die hier van toepassing is."
   },
   {
     "number": 10,
@@ -276,7 +285,8 @@ window.PSPO_QUESTIONS = [
     ],
     "answer": [
       "1"
-    ]
+    ],
+    "feedback": "De juiste keuze is 1. Product Owner. Dit is de Scrum-regel die hier van toepassing is."
   },
   {
     "number": 11,
@@ -302,7 +312,8 @@ window.PSPO_QUESTIONS = [
     ],
     "answer": [
       "4"
-    ]
+    ],
+    "feedback": "De juiste keuze is 4. When the Sprint Goal becomes obsolete. Dit is de Scrum-regel die hier van toepassing is."
   },
   {
     "number": 12,
@@ -328,7 +339,8 @@ window.PSPO_QUESTIONS = [
     ],
     "answer": [
       "1"
-    ]
+    ],
+    "feedback": "De juiste keuze is 1. Product Owner. Dit is de Scrum-regel die hier van toepassing is."
   },
   {
     "number": 13,
@@ -354,7 +366,8 @@ window.PSPO_QUESTIONS = [
     ],
     "answer": [
       "4"
-    ]
+    ],
+    "feedback": "De juiste keuze is 4. Inform the Product Owner so that he/she can work with the CEO. Dit is de Scrum-regel die hier van toepassing is."
   },
   {
     "number": 14,
@@ -380,7 +393,8 @@ window.PSPO_QUESTIONS = [
     ],
     "answer": [
       "1"
-    ]
+    ],
+    "feedback": "De juiste keuze is 1. The Scrum Team as a whole. Dit is de Scrum-regel die hier van toepassing is."
   },
   {
     "number": 15,
@@ -408,7 +422,8 @@ window.PSPO_QUESTIONS = [
       "2",
       "3",
       "4"
-    ]
+    ],
+    "feedback": "De juiste keuzes zijn 2. Changes in the business requirements; 3. Changes in the market conditions; 4. Changes in technology. Samen beschrijven ze de Scrum-regel die hier wordt getoetst."
   },
   {
     "number": 16,
@@ -434,7 +449,8 @@ window.PSPO_QUESTIONS = [
     ],
     "answer": [
       "3"
-    ]
+    ],
+    "feedback": "De juiste keuze is 3. Scrum Master. Dit is de Scrum-regel die hier van toepassing is."
   },
   {
     "number": 17,
@@ -464,7 +480,8 @@ window.PSPO_QUESTIONS = [
     ],
     "answer": [
       "4"
-    ]
+    ],
+    "feedback": "De juiste keuze is 4. Collaborate with the Product Owner and remove or change items. Dit is de Scrum-regel die hier van toepassing is."
   },
   {
     "number": 18,
@@ -490,7 +507,8 @@ window.PSPO_QUESTIONS = [
     ],
     "answer": [
       "3"
-    ]
+    ],
+    "feedback": "De juiste keuze is 3. Developers. Dit is de Scrum-regel die hier van toepassing is."
   },
   {
     "number": 19,
@@ -518,7 +536,8 @@ window.PSPO_QUESTIONS = [
       "1",
       "2",
       "3"
-    ]
+    ],
+    "feedback": "De juiste keuzes zijn 1. Helping to find techniques for effective Product Goal definition and Product Backlog management; 2. Helping the Product Owner create high-value products; 3. Helping to establish empirical product planning for a complex environment. Samen beschrijven ze de Scrum-regel die hier wordt getoetst."
   },
   {
     "number": 20,
@@ -554,7 +573,8 @@ window.PSPO_QUESTIONS = [
       "1",
       "2",
       "4"
-    ]
+    ],
+    "feedback": "De juiste keuzes zijn 1. Answer questions from the Developers about items in the current Sprint; 2. Provide feedback; 4. Work with the stakeholders. Samen beschrijven ze de Scrum-regel die hier wordt getoetst."
   },
   {
     "number": 21,
@@ -580,7 +600,8 @@ window.PSPO_QUESTIONS = [
     ],
     "answer": [
       "1"
-    ]
+    ],
+    "feedback": "De juiste keuze is 1. Optimizing the Return on Investment (ROI) and the Total Cost of Ownership (TCO) of the work the Scrum Team does. Dit is de Scrum-regel die hier van toepassing is."
   },
   {
     "number": 22,
@@ -606,7 +627,8 @@ window.PSPO_QUESTIONS = [
     ],
     "answer": [
       "3"
-    ]
+    ],
+    "feedback": "De juiste keuze is 3. Scrum Team. Dit is de Scrum-regel die hier van toepassing is."
   },
   {
     "number": 23,
@@ -633,7 +655,8 @@ window.PSPO_QUESTIONS = [
     "answer": [
       "1",
       "4"
-    ]
+    ],
+    "feedback": "De juiste keuzes zijn 1. All Scrum events are timeboxed; 4. The maximum durations of the events are fixed. Samen beschrijven ze de Scrum-regel die hier wordt getoetst."
   },
   {
     "number": 24,
@@ -659,7 +682,8 @@ window.PSPO_QUESTIONS = [
     ],
     "answer": [
       "1"
-    ]
+    ],
+    "feedback": "De juiste keuze is 1. Immediately after the conclusion of the previous Sprint. Dit is de Scrum-regel die hier van toepassing is."
   },
   {
     "number": 25,
@@ -685,7 +709,8 @@ window.PSPO_QUESTIONS = [
     ],
     "answer": [
       "4"
-    ]
+    ],
+    "feedback": "De juiste keuze is 4. All of the above. Dit is de Scrum-regel die hier van toepassing is."
   },
   {
     "number": 26,
@@ -711,7 +736,8 @@ window.PSPO_QUESTIONS = [
     ],
     "answer": [
       "2"
-    ]
+    ],
+    "feedback": "De juiste keuze is 2. Review held at the end of the Sprint to inspect the outcome of the current Sprint and determine future adaptations. Dit is de Scrum-regel die hier van toepassing is."
   },
   {
     "number": 27,
@@ -737,7 +763,8 @@ window.PSPO_QUESTIONS = [
     ],
     "answer": [
       "4"
-    ]
+    ],
+    "feedback": "De juiste keuze is 4. When they are actively working on items in the Sprint Backlog. Dit is de Scrum-regel die hier van toepassing is."
   },
   {
     "number": 28,
@@ -763,7 +790,8 @@ window.PSPO_QUESTIONS = [
     ],
     "answer": [
       "4"
-    ]
+    ],
+    "feedback": "De juiste keuze is 4. During the Sprint Planning. Dit is de Scrum-regel die hier van toepassing is."
   },
   {
     "number": 29,
@@ -789,7 +817,8 @@ window.PSPO_QUESTIONS = [
     ],
     "answer": [
       "2"
-    ]
+    ],
+    "feedback": "De juiste keuze is 2. Typically ten or fewer. Dit is de Scrum-regel die hier van toepassing is."
   },
   {
     "number": 30,
@@ -817,7 +846,8 @@ window.PSPO_QUESTIONS = [
       "1",
       "2",
       "3"
-    ]
+    ],
+    "feedback": "De juiste keuzes zijn 1. Product Backlog; 2. Latest product Increment; 3. Projected capacity of the Developers. Samen beschrijven ze de Scrum-regel die hier wordt getoetst."
   },
   {
     "number": 31,
@@ -843,7 +873,8 @@ window.PSPO_QUESTIONS = [
     ],
     "answer": [
       "5"
-    ]
+    ],
+    "feedback": "De juiste keuze is 5. It is an emergent, ordered list of what is needed to improve the product. Dit is de Scrum-regel die hier van toepassing is."
   },
   {
     "number": 32,
@@ -869,7 +900,8 @@ window.PSPO_QUESTIONS = [
     ],
     "answer": [
       "2"
-    ]
+    ],
+    "feedback": "De juiste keuze is 2. Four hours. Dit is de Scrum-regel die hier van toepassing is."
   },
   {
     "number": 33,
@@ -895,7 +927,8 @@ window.PSPO_QUESTIONS = [
     ],
     "answer": [
       "3"
-    ]
+    ],
+    "feedback": "De juiste keuze is 3. Scrum Master. Dit is de Scrum-regel die hier van toepassing is."
   },
   {
     "number": 34,
@@ -921,7 +954,8 @@ window.PSPO_QUESTIONS = [
     ],
     "answer": [
       "3"
-    ]
+    ],
+    "feedback": "De juiste keuze is 3. There is no role of management described in Scrum. Dit is de Scrum-regel die hier van toepassing is."
   },
   {
     "number": 35,
@@ -949,7 +983,8 @@ window.PSPO_QUESTIONS = [
       "1",
       "2",
       "3"
-    ]
+    ],
+    "feedback": "De juiste keuzes zijn 1. Transparency; 2. Inspection; 3. Adaptation. Samen beschrijven ze de Scrum-regel die hier wordt getoetst."
   },
   {
     "number": 36,
@@ -976,7 +1011,8 @@ window.PSPO_QUESTIONS = [
     "answer": [
       "1",
       "2"
-    ]
+    ],
+    "feedback": "De juiste keuzes zijn 1. It is the single objective for the Sprint; 2. It provides flexibility in terms of the exact work needed to achieve it. Samen beschrijven ze de Scrum-regel die hier wordt getoetst."
   },
   {
     "number": 37,
@@ -1003,7 +1039,8 @@ window.PSPO_QUESTIONS = [
     "answer": [
       "1",
       "2"
-    ]
+    ],
+    "feedback": "De juiste keuzes zijn 1. Sum of the value of all the Product Backlog items completed during a Sprint; 2. The value of the Increments of all previous Sprints. Samen beschrijven ze de Scrum-regel die hier wordt getoetst."
   },
   {
     "number": 38,
@@ -1029,7 +1066,8 @@ window.PSPO_QUESTIONS = [
     ],
     "answer": [
       "4"
-    ]
+    ],
+    "feedback": "De juiste keuze is 4. Developers. Dit is de Scrum-regel die hier van toepassing is."
   },
   {
     "number": 39,
@@ -1055,7 +1093,8 @@ window.PSPO_QUESTIONS = [
     ],
     "answer": [
       "4"
-    ]
+    ],
+    "feedback": "De juiste keuze is 4. All of the above. Dit is de Scrum-regel die hier van toepassing is."
   },
   {
     "number": 40,
@@ -1073,7 +1112,8 @@ window.PSPO_QUESTIONS = [
     ],
     "answer": [
       "1"
-    ]
+    ],
+    "feedback": "De juiste keuze is 1. True. Dit is de Scrum-regel die hier van toepassing is."
   },
   {
     "number": 41,
@@ -1099,7 +1139,8 @@ window.PSPO_QUESTIONS = [
     ],
     "answer": [
       "2"
-    ]
+    ],
+    "feedback": "De juiste keuze is 2. Inspection enables Adaptation. Dit is de Scrum-regel die hier van toepassing is."
   },
   {
     "number": 42,
@@ -1125,7 +1166,8 @@ window.PSPO_QUESTIONS = [
     ],
     "answer": [
       "1"
-    ]
+    ],
+    "feedback": "De juiste keuze is 1. Transparency. Dit is de Scrum-regel die hier van toepassing is."
   },
   {
     "number": 43,
@@ -1151,7 +1193,8 @@ window.PSPO_QUESTIONS = [
     ],
     "answer": [
       "1"
-    ]
+    ],
+    "feedback": "De juiste keuze is 1. Developers. Dit is de Scrum-regel die hier van toepassing is."
   },
   {
     "number": 44,
@@ -1178,7 +1221,8 @@ window.PSPO_QUESTIONS = [
     "answer": [
       "1",
       "3"
-    ]
+    ],
+    "feedback": "De juiste keuzes zijn 1. Discusses what went well during the Sprint; 3. Occurs after the Sprint Review and prior to the next Sprint Planning. Samen beschrijven ze de Scrum-regel die hier wordt getoetst."
   },
   {
     "number": 45,
@@ -1206,7 +1250,8 @@ window.PSPO_QUESTIONS = [
       "1",
       "3",
       "4"
-    ]
+    ],
+    "feedback": "De juiste keuzes zijn 1. Sprint Goal; 3. Product Backlog items selected for the Sprint; 4. Plan for delivering the selected Product Backlog items. Samen beschrijven ze de Scrum-regel die hier wordt getoetst."
   },
   {
     "number": 46,
@@ -1232,7 +1277,8 @@ window.PSPO_QUESTIONS = [
     ],
     "answer": [
       "2"
-    ]
+    ],
+    "feedback": "De juiste keuze is 2. Scrum Master, Product Owner and Developers. Dit is de Scrum-regel die hier van toepassing is."
   },
   {
     "number": 47,
@@ -1258,7 +1304,8 @@ window.PSPO_QUESTIONS = [
     ],
     "answer": [
       "3"
-    ]
+    ],
+    "feedback": "De juiste keuze is 3. Developers. Dit is de Scrum-regel die hier van toepassing is."
   },
   {
     "number": 48,
@@ -1284,7 +1331,8 @@ window.PSPO_QUESTIONS = [
     ],
     "answer": [
       "1"
-    ]
+    ],
+    "feedback": "De juiste keuze is 1. Developers. Dit is de Scrum-regel die hier van toepassing is."
   },
   {
     "number": 49,
@@ -1310,7 +1358,8 @@ window.PSPO_QUESTIONS = [
     ],
     "answer": [
       "1"
-    ]
+    ],
+    "feedback": "De juiste keuze is 1. As determined by the Definition of Done. Dit is de Scrum-regel die hier van toepassing is."
   },
   {
     "number": 50,
@@ -1336,7 +1385,8 @@ window.PSPO_QUESTIONS = [
     ],
     "answer": [
       "3"
-    ]
+    ],
+    "feedback": "De juiste keuze is 3. Transparency. Dit is de Scrum-regel die hier van toepassing is."
   },
   {
     "number": 51,
@@ -1362,7 +1412,8 @@ window.PSPO_QUESTIONS = [
     ],
     "answer": [
       "1"
-    ]
+    ],
+    "feedback": "De juiste keuze is 1. Sprint Goal. Dit is de Scrum-regel die hier van toepassing is."
   },
   {
     "number": 52,
@@ -1384,6 +1435,7 @@ window.PSPO_QUESTIONS = [
     ],
     "answer": [
       "1"
-    ]
+    ],
+    "feedback": "De juiste keuze is 1. Product Goal. Dit is de Scrum-regel die hier van toepassing is."
   }
 ];
