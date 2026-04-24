@@ -1,5 +1,4 @@
 const QUESTION_BANK = window.PSPO_QUESTIONS || [];
-const STORAGE_KEY = 'pspo-exam-state-v2';
 const EXAM_QUESTION_COUNT = 80;
 const EXAM_DURATION_SECONDS = 60 * 60;
 const PASS_PERCENT = 85;
@@ -65,46 +64,7 @@ function formatTime(totalSeconds) {
 }
 
 function persistState() {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify({
-    currentIndex: state.currentIndex,
-    selected: state.selected,
-    submitted: state.submitted,
-    startedAt: state.startedAt,
-    finishedAt: state.finishedAt,
-    questionIds: state.questionIds,
-  }));
-}
-
-function loadState() {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) {
-      return;
-    }
-
-    const parsed = JSON.parse(raw);
-    if (Array.isArray(parsed.questionIds) && parsed.questionIds.length === EXAM_QUESTION_COUNT) {
-      const filtered = parsed.questionIds
-        .filter((id) => questionById.has(id));
-      if (filtered.length === EXAM_QUESTION_COUNT) {
-        state.questionIds = filtered;
-      }
-    }
-
-    if (typeof parsed.currentIndex === 'number') {
-      state.currentIndex = Math.min(EXAM_QUESTION_COUNT - 1, Math.max(0, parsed.currentIndex));
-    }
-
-    if (parsed.selected && typeof parsed.selected === 'object') {
-      state.selected = parsed.selected;
-    }
-
-    state.submitted = Boolean(parsed.submitted);
-    state.startedAt = typeof parsed.startedAt === 'number' ? parsed.startedAt : null;
-    state.finishedAt = typeof parsed.finishedAt === 'number' ? parsed.finishedAt : null;
-  } catch {
-    localStorage.removeItem(STORAGE_KEY);
-  }
+  // Intentionally no-op: the exam should reset on every refresh.
 }
 
 function getCurrentExamQuestions() {
@@ -522,21 +482,13 @@ function init() {
     return;
   }
 
-  loadState();
-  if (!state.questionIds.length && !state.submitted) {
-    render();
-  } else {
-    if (state.questionIds.length !== EXAM_QUESTION_COUNT) {
-      state.questionIds = [];
-      state.currentIndex = 0;
-      state.selected = {};
-      state.submitted = false;
-      state.startedAt = null;
-      state.finishedAt = null;
-    }
-    render();
-    autoSubmitIfExpired();
-  }
+  state.currentIndex = 0;
+  state.selected = {};
+  state.submitted = false;
+  state.startedAt = null;
+  state.finishedAt = null;
+  state.questionIds = [];
+  render();
 
   setInterval(() => {
     if (state.questionIds.length && !state.submitted) {
