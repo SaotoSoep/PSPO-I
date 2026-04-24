@@ -1,6 +1,7 @@
 const QUESTION_BANK = [
   ...(window.PSPO_QUESTIONS || []),
   ...(window.PSPO_EXTRA_QUESTIONS || []),
+  ...(window.PSPO_EXTRA_QUESTIONS_2 || []),
 ];
 const EXAM_QUESTION_COUNT = 80;
 const EXAM_DURATION_SECONDS = 60 * 60;

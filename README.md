@@ -4,7 +4,7 @@ Een exam-like oefenwebsite voor PSPO I.
 
 ## Wat je krijgt
 
-- 80 unieke vragen in de database
+- 160 unieke vragen in de database
 - Elke examensessie kiest 80 willekeurige vragen
 - 60 minuten per examen
 - Pass score van 85%
@@ -17,6 +17,7 @@ Een exam-like oefenwebsite voor PSPO I.
 - `css/styles.css`
 - `js/questions.js`
 - `js/extraQuestions.js`
+- `js/extraQuestions2.js`
 - `js/app.js`
 - `scripts/check-question-bank.mjs`
 - `Scrum Product Owner Sample Exam Questions.pdf`

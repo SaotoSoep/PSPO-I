@@ -1,5 +1,6 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import vm from 'node:vm';
 
 function stripAssignment(text) {
   const trimmed = text.trim();
@@ -75,18 +76,40 @@ function loadQuestions(fileText) {
 
 async function loadFileQuestions(filePath) {
   const fileText = await fs.readFile(filePath, 'utf8');
-  return loadQuestions(fileText);
+  if (/^window\.[A-Z0-9_]+\s*=\s*\[/.test(fileText.trim())) {
+    return loadQuestions(fileText);
+  }
+
+  const match = fileText.match(/window\.([A-Z0-9_]+)\s*=\s*/i);
+  if (!match) {
+    throw new Error(`Could not locate window assignment in ${filePath}`);
+  }
+
+  const varName = match[1];
+  const context = vm.createContext({ window: {} });
+  const script = new vm.Script(fileText, { filename: filePath });
+  script.runInContext(context);
+  const value = context.window[varName];
+  if (!Array.isArray(value)) {
+    throw new Error(`Expected ${varName} to be an array in ${filePath}`);
+  }
+  return value;
 }
 
 async function main() {
   const cwd = process.cwd();
   const basePath = path.join(cwd, 'js', 'questions.js');
-  const candidatePath = path.join(cwd, 'js', 'extraQuestions.js');
+  const candidatePaths = [
+    path.join(cwd, 'js', 'extraQuestions.js'),
+    path.join(cwd, 'js', 'extraQuestions2.js'),
+  ];
 
-  const [baseQuestions, candidateQuestions] = await Promise.all([
+  const [baseQuestions, ...candidateQuestionSets] = await Promise.all([
     loadFileQuestions(basePath),
-    loadFileQuestions(candidatePath),
+    ...candidatePaths.map((candidatePath) => loadFileQuestions(candidatePath)),
   ]);
+
+  const candidateQuestions = candidateQuestionSets.flat();
 
   const baseSeen = new Map();
   for (const question of baseQuestions) {
